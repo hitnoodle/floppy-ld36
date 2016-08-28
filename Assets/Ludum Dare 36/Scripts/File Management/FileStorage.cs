@@ -87,6 +87,8 @@ public class FileStorage : MonoBehaviour
 
 	private CanvasGroup _CanvasGroup;
 
+	private Coroutine _EjectRoutine;
+
     // Use this for initialization
     void Start()
     {
@@ -107,7 +109,7 @@ public class FileStorage : MonoBehaviour
     {
         if (!_IsEjected.Value)
         {
-            StartCoroutine(EjectRoutine());
+			_EjectRoutine = StartCoroutine(EjectRoutine());
         }
     }
 
@@ -123,6 +125,12 @@ public class FileStorage : MonoBehaviour
 		ShowPanel ();
     }
 
+	public void StopEjectRoutine() {
+		if (_EjectRoutine != null) {
+			StopCoroutine (_EjectRoutine);
+		}
+		_IsEjected.Value = false;
+	}
 
 	public void GenerateFile(File file)
     {

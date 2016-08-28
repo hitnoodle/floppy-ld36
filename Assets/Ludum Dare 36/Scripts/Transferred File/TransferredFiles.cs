@@ -25,14 +25,18 @@ public class TransferredFiles : MonoBehaviour {
 		foreach (File file in sourceFiles) {
 
 			// search file in file list
+			// file dan kepemilikannya sama
 			bool foundSameFile = false;
 			int sameFileIndex = 0;
 			while (!foundSameFile && sameFileIndex < TransferredList.Count) {
-				if (TransferredList [sameFileIndex].FileModel.Name == file.Name) {
+				
+				if (TransferredList [sameFileIndex].FileModel.Name == file.Name &&
+					TransferredList [sameFileIndex].StorageType == storageSource.StorageType) {
 					foundSameFile = true;
 				} else {
 					sameFileIndex++;
 				}
+
 			}
 
 			if (foundSameFile) {

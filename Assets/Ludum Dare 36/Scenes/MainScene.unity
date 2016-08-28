@@ -701,7 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: HDD
   _Size: 83886080
-  StorageType: 0
+  StorageType: 1
   _CurrentSize: 1474.56
   _TransferSpeed: 25
   _Files: []
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: Floppy Disk
   _Size: 1474.56
-  StorageType: 0
+  StorageType: 2
   _CurrentSize: 1474.56
   _TransferSpeed: 250
   _Files: []

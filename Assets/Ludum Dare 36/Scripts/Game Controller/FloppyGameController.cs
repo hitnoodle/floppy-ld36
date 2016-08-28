@@ -32,6 +32,9 @@ public class FloppyGameController : MonoBehaviour {
 	{
 		Debug.Log ("Alhamdulillah bu, sudah ditransfer. Udah tjuth");
 		StartCoroutine (NextLevelRoutine ());
+
+		FloppyStorage.StopEjectRoutine ();
+		FloppyStorage.ShowPanel ();
 	}
 	
 	// Update is called once per frame

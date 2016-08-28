@@ -46,6 +46,11 @@ public class File
         get { return _Progress; }
     }
 
+    public bool IsTransferring
+    {
+        get; set;
+    }
+
     public File(string name, float size)
     {
 		_Name = name;

@@ -204,6 +204,22 @@ public class FileStorage : MonoBehaviour
         return false;
     }
 
+    public string[] GetIdleFiles()
+    {
+        List<string> idleFiles = new List<string>();
+
+        IEnumerable<File> fileFound = _Files.Where(x => x.IsTransferring == false);
+        if (fileFound.Count() >= 1)
+        {
+            foreach (File file in fileFound)
+            {
+                idleFiles.Add(file.Name);
+            }
+        }
+
+        return idleFiles.ToArray();
+    }
+
 	public void HidePanel() {
 		_CanvasGroup.alpha = 0;
 		_CanvasGroup.interactable = false;

@@ -14,6 +14,10 @@ public class FloppyGameController : MonoBehaviour {
 	public FileStorage HDDStorage;
 	public FileStorage FloppyStorage;
 
+    [Header("Opponent Source")]
+    public IconUI CDIcon;
+    public FileStorage CDStorage;
+
 	[Header("Level")]
 	public int CurrentLevelIndex = 0;
 	public bool DoLoadLevel = false;
@@ -25,6 +29,7 @@ public class FloppyGameController : MonoBehaviour {
 		_TransferredFile = GetComponent<TransferredFiles> ();
 
 		FloppyStorage.OnTransferFile += Floppy_OnTransferFile;
+        CDStorage.OnTransferFile += CD_OnTransferFile;
 		_TransferredFile.OnTransferDone += Handle_OnTransferDone;
 	}
 
@@ -62,7 +67,11 @@ public class FloppyGameController : MonoBehaviour {
 
 			HDDStorage.GenerateFile (newFile);
 		}
-	}
+
+        CDIcon.gameObject.SetActive(levelModel.OpponentStorage == LevelModel.StorageType.CD);
+        if (levelModel.OpponentStorage == LevelModel.StorageType.CD)
+            CDStorage.ShowPanel();
+    }
 
 	private void DestroyPreviousLevel() {
 		HDDStorage.DeleteFiles ();
@@ -73,7 +82,11 @@ public class FloppyGameController : MonoBehaviour {
 		_TransferredFile.TransferFile (fileStorage, files); 
 	}
 
-	public LevelModel GetCurrentLevelModel() {
+    void CD_OnTransferFile(FileStorage fileStorage, List<File> files) {
+        _TransferredFile.TransferFile(fileStorage, files);
+    }
+
+    public LevelModel GetCurrentLevelModel() {
 		return _LevelData.LevelArr [CurrentLevelIndex];
 	}
 

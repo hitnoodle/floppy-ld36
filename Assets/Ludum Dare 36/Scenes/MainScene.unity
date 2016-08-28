@@ -445,6 +445,7 @@ GameObject:
   - 224: {fileID: 372846991}
   - 222: {fileID: 372846993}
   - 114: {fileID: 372846992}
+  - 225: {fileID: 372846996}
   - 114: {fileID: 372846994}
   - 114: {fileID: 372846995}
   m_Layer: 5
@@ -515,15 +516,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 372846990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc211412b8b7614fb401fa2bb6b6b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fb575c498bcf5c438af3f7a5f73afbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Name: TA.3gp
-  _Size: 100
-  _Type: 0
-  _Progress:
-    value: 100
-  _Transferred: 1
+  _File:
+    _Name: TA.3gp
+    _Size: 1024
+    _Type: 0
+    _Progress:
+      value: 100
+    _Transferred: 0
 --- !u!114 &372846995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +540,17 @@ MonoBehaviour:
   _FileImage: {fileID: 372846992}
   _FileText: {fileID: 1767957667}
   _FileProgressBar: {fileID: 1943877522}
+--- !u!225 &372846996
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372846990}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &513526145
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using UniRx;
 
-[RequireComponent(typeof(File))]
+[RequireComponent(typeof(FileBehavior))]
 public class FileUI : MonoBehaviour
 {
-    protected File _File;
+    protected FileBehavior _FileBehavior;
 
     [SerializeField]
     protected Image _FileImage;
@@ -19,13 +19,13 @@ public class FileUI : MonoBehaviour
 
     void Awake()
     {
-        _File = GetComponent<File>();
+        _FileBehavior = GetComponent<FileBehavior>();
     }
 
     // Use this for initialization
     void Start()
     {
-        _FileText.text = _File.Name;
-        _File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
+        _FileText.text = _FileBehavior.File.Name;
+        _FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
     }
 }

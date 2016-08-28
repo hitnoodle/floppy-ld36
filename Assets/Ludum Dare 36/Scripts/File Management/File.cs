@@ -2,7 +2,8 @@
 using System.Collections;
 using UniRx;
 
-public class File : MonoBehaviour
+[System.Serializable]
+public class File
 {
     public enum FileType
     {
@@ -35,10 +36,4 @@ public class File : MonoBehaviour
 
     [SerializeField]
     protected bool _Transferred = false; 
-
-	// Use this for initialization
-	void Start ()
-    {
-	
-	}
 }

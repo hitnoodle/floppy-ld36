@@ -28,4 +28,21 @@ public class FileUI : MonoBehaviour
         _FileText.text = _FileBehavior.File.Name;
         _FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
     }
+
+	public void Reset() {
+		// dispose previous subscription
+		_FileBehavior.File.Progress.Dispose();
+		//resubscribe
+		_FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
+
+		_FileText.text = _FileBehavior.File.Name;
+
+		// set image
+		if (_FileBehavior.File.ImageURL != null && _FileBehavior.File.ImageURL != "") {
+			Texture2D loadedTexture2D = Resources.Load (_FileBehavior.File.ImageURL) as Texture2D;
+			Sprite loadedSprite = Sprite.Create (loadedTexture2D, new Rect (0,0, loadedTexture2D.width, loadedTexture2D.height), Vector2.zero);
+			_FileImage.sprite = loadedSprite;
+		}
+
+	}
 }

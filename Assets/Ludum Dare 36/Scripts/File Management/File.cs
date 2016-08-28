@@ -17,6 +17,13 @@ public class File
         get { return _Name; }
     }
 
+	[SerializeField]
+	protected string _ImageURL;
+	public string ImageURL
+	{
+		get { return _ImageURL; }
+	}
+
     [SerializeField]
     protected float _Size; // In kilobytes (KB)
     public string SizeInText

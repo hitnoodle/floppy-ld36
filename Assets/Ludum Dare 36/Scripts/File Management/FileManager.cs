@@ -31,17 +31,25 @@ public class FileManager : MonoBehaviour
 
     protected IEnumerator TransferFileRoutine(string fileName, FileStorage from, FileStorage to)
     {
+
 		from.DisableEject ();
 		to.DisableEject ();
+
+		File oldFile 	= null;
+		File newFile	= null;
 
         // Ha ha harcode..
         if (to.CurrentSize > 5)
         {
-            File oldFile = from.GetFile(fileName);
+            oldFile = from.GetFile(fileName);
             oldFile.IsTransferring = true;
 
-            File newFile = to.GetFile(fileName);
+            newFile = to.GetFile(fileName);
             if (newFile == null) newFile = to.CloneFile(oldFile);
+
+			// nandain siapa lagi transfer apaan
+			from.TransferringFile.Add (oldFile);
+			to.TransferringFile.Add (newFile);
 
             float transferRate = to.TransferSpeed;
             float sizeToTransfer = oldFile.Progress.Value / 100f * oldFile.Size;
@@ -80,10 +88,16 @@ public class FileManager : MonoBehaviour
                     break;
                 }
             }
-        }
 
-		from.EnableEject ();
-		to.EnableEject ();
+			from.TransferringFile.Remove (oldFile);
+			to.TransferringFile.Remove (newFile);
+				
+        }
+		if (from.TransferringFile.Count <= 0)
+			from.EnableEject ();
+		if (to.TransferringFile.Count <= 0)
+			to.EnableEject ();
+
     }
 
     // Asumption: all file exists on "from"

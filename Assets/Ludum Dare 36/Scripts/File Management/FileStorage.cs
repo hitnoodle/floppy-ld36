@@ -39,9 +39,9 @@ public class FileStorage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        File[] files = GetComponentsInChildren<File>();
-        foreach (File file in files)
-            _Files.Add(file);
+        FileBehavior[] files = GetComponentsInChildren<FileBehavior>();
+        foreach (FileBehavior fileBehavior in files)
+            _Files.Add(fileBehavior.File);
     }
 
     public void Eject()

@@ -67,4 +67,8 @@ public class File
 	public void SetFileProgress(float progress) {
 		_Progress.Value = progress;
 	}
+
+	public void SetFileSize(float size) {
+		_Size = size;
+	}
 }

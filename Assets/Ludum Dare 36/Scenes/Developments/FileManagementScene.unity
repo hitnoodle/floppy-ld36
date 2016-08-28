@@ -830,6 +830,7 @@ MonoBehaviour:
   _EjectRefreshDuration: 5
   _ParentFileUI: {fileID: 1812769390}
   _EjectButton: {fileID: 0}
+  TransferringFile: []
 --- !u!225 &587231880
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -905,7 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: CD
   _Size: 1474.56
-  StorageType: 2
+  StorageType: 4
   _CurrentSize: 1474.56
   _TransferSpeed: 250
   _Files: []
@@ -914,6 +915,7 @@ MonoBehaviour:
   _EjectRefreshDuration: 5
   _ParentFileUI: {fileID: 1168203103}
   _EjectButton: {fileID: 0}
+  TransferringFile: []
 --- !u!114 &670407681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d6d34f9494ad24c9e2fc033ce03a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FileManager: {fileID: 963956565}
+  HDDStorage: {fileID: 587231879}
+  Delay: 5
 --- !u!1 &681873228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2684,7 @@ MonoBehaviour:
   _EjectRefreshDuration: 5
   _ParentFileUI: {fileID: 513526146}
   _EjectButton: {fileID: 1398084113}
+  TransferringFile: []
 --- !u!225 &2074960728
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2726,6 +2732,7 @@ MonoBehaviour:
   CDStorage: {fileID: 670407680}
   CurrentLevelIndex: 0
   DoLoadLevel: 1
+  NextLevelWaitTime: 1
 --- !u!4 &2077596993
 Transform:
   m_ObjectHideFlags: 0
@@ -2765,7 +2772,7 @@ MonoBehaviour:
       _Type: 0
       _Progress:
         value: 100
-    OpponentStorage: 2
+    OpponentStorage: 4
   - Day: 7
     FileList:
     - _Name: Thesis.txt
@@ -2773,19 +2780,19 @@ MonoBehaviour:
       _Size: 500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     - _Name: FileBunda.3gp
       _ImageURL: 
       _Size: 1500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     - _Name: FilePapap.3gp
       _ImageURL: 
       _Size: 3000
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     OpponentStorage: 0
 --- !u!114 &2077596995
 MonoBehaviour:
@@ -2798,4 +2805,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0746f545d3ad4df18edf65e0a05d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileList: []
+  TransferredList: []

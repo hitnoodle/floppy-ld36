@@ -19,7 +19,7 @@ public class FileManager : MonoBehaviour
         FileStorage to = Storages.Where(x => x.Name.Equals(toStorage)).First();
 
         File oldFile = from.GetFile(fileName);
-        if (oldFile.IsTransferring) return; // DO error alert
+        if (oldFile != null && oldFile.IsTransferring) return; // DO error alert
 
         TransferFile(fileName, from, to);
     }

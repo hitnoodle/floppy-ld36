@@ -216,4 +216,14 @@ public class FileStorage : MonoBehaviour
 		CurrentSize = Size;
 	}
 
+	public void EnableEject() {
+		if (_EjectButton != null)
+			_EjectButton.interactable = true;
+	}
+
+	public void DisableEject() {
+		if (_EjectButton != null)
+			_EjectButton.interactable = false;
+	}
+
 }

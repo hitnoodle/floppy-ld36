@@ -28,6 +28,9 @@ public class FileManager : MonoBehaviour
 
     protected IEnumerator TransferFileRoutine(string fileName, FileStorage from, FileStorage to)
     {
+		from.DisableEject ();
+		to.DisableEject ();
+
         // Ha ha harcode..
         if (to.CurrentSize > 5)
         {
@@ -72,5 +75,8 @@ public class FileManager : MonoBehaviour
                 }
             }
         }
+
+		from.EnableEject ();
+		to.EnableEject ();
     }
 }

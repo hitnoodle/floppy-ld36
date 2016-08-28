@@ -39,7 +39,7 @@ public class CDAiTest : MonoBehaviour
                     yield return StartCoroutine(FileManager.TransferFileBurnRoutine(tookNames, HDDStorage, _CDStorage));
             }
 
-            yield return null;
+            yield return new WaitForSeconds(Delay);
         }
     }
 }

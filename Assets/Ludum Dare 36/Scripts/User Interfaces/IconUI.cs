@@ -15,7 +15,7 @@ public class IconUI : MonoBehaviour
     {
         _ClickedTimes.Where(x => x == 2).Subscribe(x => {
             _StoragePanelUI.ShowPanel();
-            x = 0;
+            _ClickedTimes.Value = 0;
         });
 	}
 

@@ -15,6 +15,9 @@ public class UIProgressBar : MonoBehaviour
     [SerializeField]
     protected bool _IsHideWhenFull = true;
 
+    [SerializeField]
+    protected Image _BarOuter;
+
     protected RectTransform _Transform;
     protected Image _Bar;
 
@@ -32,7 +35,10 @@ public class UIProgressBar : MonoBehaviour
             _Transform.localScale = new Vector3(percentage / 100f, 1, 1);
 
             if (_IsHideWhenFull)
+            {
                 _Bar.enabled = percentage != 100f;
+                if (_BarOuter != null) _BarOuter.enabled = percentage != 100f;
+            }
         });
     }
 }

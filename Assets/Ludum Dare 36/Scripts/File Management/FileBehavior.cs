@@ -7,7 +7,8 @@ public class FileBehavior : MonoBehaviour
     protected File _File;
     public File File
     {
-        get { return _File; }
+        get { return _File;  }
+        set { _File = value; }
     }
 
 	// Use this for initialization
@@ -15,4 +16,9 @@ public class FileBehavior : MonoBehaviour
     {
 	
 	}
+
+    public void StartDragging()
+    {
+        EventManager.Instance.TriggerEvent(new FileDraggingStartEvent(File.Name, "HDD"));
+    }
 }

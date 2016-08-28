@@ -19,6 +19,11 @@ public class File
 
     [SerializeField]
     protected float _Size; // In kilobytes (KB)
+    public float Size
+    {
+        get { return _Size; }
+    }
+
     public string SizeInText
     {
         get { return FileUtilities.GetSizeText(_Size); }
@@ -34,6 +39,12 @@ public class File
         get { return _Progress; }
     }
 
-    [SerializeField]
-    protected bool _Transferred = false; 
+    public File(string name, float size)
+    {
+        _Name = name;
+        _Size = size;
+
+        _Progress = new FloatReactiveProperty();
+        _Progress.Value = 0;
+    }
 }

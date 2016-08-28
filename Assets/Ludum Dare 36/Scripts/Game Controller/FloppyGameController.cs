@@ -17,6 +17,7 @@ public class FloppyGameController : MonoBehaviour {
 	[Header("Level")]
 	public int CurrentLevelIndex = 0;
 	public bool DoLoadLevel = false;
+	public float NextLevelWaitTime = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class FloppyGameController : MonoBehaviour {
 	void Handle_OnTransferDone ()
 	{
 		Debug.Log ("Alhamdulillah bu, sudah ditransfer. Udah tjuth");
+		StartCoroutine (NextLevelRoutine ());
 	}
 	
 	// Update is called once per frame
@@ -70,6 +72,12 @@ public class FloppyGameController : MonoBehaviour {
 
 	public LevelModel GetCurrentLevelModel() {
 		return _LevelData.LevelArr [CurrentLevelIndex];
+	}
+
+	IEnumerator NextLevelRoutine() {
+		yield return new WaitForSeconds (NextLevelWaitTime);
+		CurrentLevelIndex++;
+		LoadLevel (CurrentLevelIndex);
 	}
 
 }

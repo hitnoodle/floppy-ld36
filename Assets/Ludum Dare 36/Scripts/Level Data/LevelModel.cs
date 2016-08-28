@@ -4,17 +4,18 @@ using System.Collections;
 [System.Serializable]
 public class LevelModel {
 
-	public enum OpponentStorageType
+	public enum StorageType
 	{
 		NONE 		= 0,
-		CD			= 1,
-		DVD			= 2,
-		THUMBDRIVE	= 3,
-		CLOUD		= 4
+		FLOPPY		= 1,
+		CD			= 2,
+		DVD			= 3,
+		THUMBDRIVE	= 4,
+		CLOUD		= 5
 	}
 
 	public int Day;
 	public File[] FileList;
-	public OpponentStorageType OpponentStorage;
+	public StorageType OpponentStorage;
 
 }

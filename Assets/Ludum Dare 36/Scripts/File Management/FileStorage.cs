@@ -89,6 +89,8 @@ public class FileStorage : MonoBehaviour
 
 	private Coroutine _EjectRoutine;
 
+	public List<File> TransferringFile = new List<File> ();
+
     // Use this for initialization
     void Start()
     {

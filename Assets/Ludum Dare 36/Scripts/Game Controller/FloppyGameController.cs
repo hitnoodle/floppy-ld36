@@ -63,7 +63,9 @@ public class FloppyGameController : MonoBehaviour {
 
 		foreach (File file in levelModel.FileList) {
 			File newFile = new File (file.Name, file.Size, file.ImageURL);
-			newFile.SetFileProgress (file.Progress.Value);
+
+			// pasti 100 di harddisk mah kalau hari pertama
+			newFile.SetFileProgress (100);
 
 			HDDStorage.GenerateFile (newFile);
 		}

@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class FloppyGameController : MonoBehaviour {
 
+    [System.Serializable]
+    public class OpponentData
+    {
+        public LevelModel.StorageType StorageType;
+        public IconUI Icon;
+        public FileStorage Storage;
+    }
 
 	private LevelData _LevelData;
 	private TransferredFiles _TransferredFile;
@@ -16,8 +24,9 @@ public class FloppyGameController : MonoBehaviour {
 	public FileStorage FloppyStorage;
 
     [Header("Opponent Source")]
-    public IconUI CDIcon;
-    public FileStorage CDStorage;
+
+    public OpponentData[] Opponents;
+    public OpponentData OpponentCurrent;
 
 	[Header("Level")]
 	public int CurrentLevelIndex = 0;
@@ -30,9 +39,8 @@ public class FloppyGameController : MonoBehaviour {
 		_TransferredFile = GetComponent<TransferredFiles> ();
 
 		FloppyStorage.OnTransferFile += Floppy_OnTransferFile;
-        CDStorage.OnTransferFile += CD_OnTransferFile;
 		_TransferredFile.OnTransferDone += Handle_OnTransferDone;
-	}
+    }
 
 	void Handle_OnTransferDone ()
 	{
@@ -71,25 +79,39 @@ public class FloppyGameController : MonoBehaviour {
 				
 				HDDStorage.GenerateFile (newFile);
 			}
-			
-			CDIcon.gameObject.SetActive (levelModel.OpponentStorage == LevelModel.StorageType.CD);
-			if (levelModel.OpponentStorage == LevelModel.StorageType.CD)
-				CDStorage.ShowPanel ();
-			
-		} else {
+
+            if (levelModel.OpponentStorage != LevelModel.StorageType.NONE)
+            {
+                OpponentData data = Opponents.Where(x => x.StorageType == levelModel.OpponentStorage).First();
+                OpponentCurrent = data;
+
+                OpponentCurrent.Icon.gameObject.SetActive(true);
+                OpponentCurrent.Storage.ShowPanel();
+                OpponentCurrent.Storage.OnTransferFile += Storage_OnTransferFile;
+            }
+
+        } else {
 			SceneManager.LoadScene ("SplashScene");
 		}
     }
 
 	private void DestroyPreviousLevel() {
 		HDDStorage.DeleteFiles ();
+
+        if (OpponentCurrent != null)
+        {
+            if (OpponentCurrent.Icon) OpponentCurrent.Icon.gameObject.SetActive(false);
+            if (OpponentCurrent.Storage) OpponentCurrent.Storage.OnTransferFile -= Storage_OnTransferFile;
+
+            OpponentCurrent = null;
+        }
 	}
 
 	void Floppy_OnTransferFile(FileStorage fileStorage, List<File> files) {
 		_TransferredFile.TransferFile (fileStorage, files); 
 	}
 
-    void CD_OnTransferFile(FileStorage fileStorage, List<File> files) {
+    void Storage_OnTransferFile(FileStorage fileStorage, List<File> files) {
         _TransferredFile.TransferFile(fileStorage, files);
     }
 

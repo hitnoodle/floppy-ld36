@@ -83,17 +83,7 @@ public class FileStorage : MonoBehaviour
         _CurrentSize = _Size;
         _FileBehaviors = new List<FileBehavior>();
 
-        // ONLY FOR TESTING, STORAGE MUST BE EMPTY AT THE BEGINNIG
-        FileBehavior[] files = GetComponentsInChildren<FileBehavior>();
-        foreach (FileBehavior fileBehavior in files)
-        {
-            _CurrentSize -= fileBehavior.File.Size;
-            _Files.Add(fileBehavior.File);
-
-            _FileBehaviors.Add(fileBehavior);
-        }
 		_GridLayout = GetComponentInChildren<GridLayoutGroup> ();
-
     }
 
     public void Eject()
@@ -150,6 +140,7 @@ public class FileStorage : MonoBehaviour
         FileBehavior newFileBehavior = Instantiate(Resources.Load<FileBehavior>(FILE_PREFAB));
         newFileBehavior.File = newFile;
         newFileBehavior.transform.SetParent(_ParentFileUI);
+        newFileBehavior.transform.localScale = new Vector3(1, 1, 1);
         _FileBehaviors.Add(newFileBehavior);
 
         // Implisit

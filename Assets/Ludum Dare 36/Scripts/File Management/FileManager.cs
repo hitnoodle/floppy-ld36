@@ -28,37 +28,48 @@ public class FileManager : MonoBehaviour
 
     protected IEnumerator TransferFileRoutine(string fileName, FileStorage from, FileStorage to)
     {
-        File oldFile = from.GetFile(fileName);
-        File newFile = to.CloneFile(oldFile);
-
-        float transferRate = to.TransferSpeed;
-        float sizeToTransfer = oldFile.Size;
-        float fileTransferSize = 0;
-
-        while (to.CurrentSize > 0)
+        // Ha ha harcode..
+        if (to.CurrentSize > 5)
         {
-            yield return null;
-            fileTransferSize = transferRate * Time.deltaTime;
+            File oldFile = from.GetFile(fileName);
+            File newFile = to.GetFile(fileName);
+            if (newFile == null) newFile = to.CloneFile(oldFile);
 
-            if (to.CurrentSize - fileTransferSize >= 0)
+            float transferRate = to.TransferSpeed;
+            float sizeToTransfer = oldFile.Progress.Value / 100f * oldFile.Size;
+            float fileTransferSize = 0;
+
+            while (to.CurrentSize > 0)
             {
-                to.CurrentSize -= fileTransferSize;
+                yield return null;
+                fileTransferSize = transferRate * Time.deltaTime;
 
-                sizeToTransfer -= fileTransferSize;
-                if (sizeToTransfer < 0) sizeToTransfer = 0;
-
-                oldFile.Progress.Value = Mathf.Clamp(sizeToTransfer / oldFile.Size * 100f, 0, 100);
-                newFile.Progress.Value = Mathf.Clamp(100 - oldFile.Progress.Value, 0, 100);
-
-                // Finish transferring
-                if (sizeToTransfer == 0)
+                if (to.CurrentSize - fileTransferSize >= 0)
                 {
-                    from.DeleteFile(fileName);
+                    to.CurrentSize -= fileTransferSize;
+
+                    sizeToTransfer -= fileTransferSize;
+                    if (sizeToTransfer < 0) sizeToTransfer = 0;
+
+                    oldFile.Progress.Value = Mathf.Clamp(sizeToTransfer / oldFile.Size * 100f, 0, 100);
+                    newFile.Progress.Value = Mathf.Clamp(100 - oldFile.Progress.Value, 0, 100);
+
+                    // Finish transferring
+                    if (sizeToTransfer == 0)
+                    {
+                        from.DeleteFile(fileName);
+                        
+                        // Done
+                        break;
+                    }
                 }
-            }
-            else
-            {
-                // Not enough space
+                else
+                {
+                    // Not enough space
+
+                    // Done
+                    break;
+                }
             }
         }
     }

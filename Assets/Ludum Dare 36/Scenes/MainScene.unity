@@ -1883,13 +1883,13 @@ MonoBehaviour:
       _Size: 500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     - _Name: FileMamah.3gp
       _ImageURL: 
       _Size: 1500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     OpponentStorage: 0
   - Day: 7
     FileList:

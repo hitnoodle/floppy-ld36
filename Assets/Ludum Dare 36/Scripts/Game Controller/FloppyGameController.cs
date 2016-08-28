@@ -24,6 +24,9 @@ public class FloppyGameController : MonoBehaviour {
 	public bool DoLoadLevel = false;
 	public float NextLevelWaitTime = 1f;
 
+	public delegate void _OnLoadLevel(int levelIndex);
+	public _OnLoadLevel OnLoadLevel;
+
 	// Use this for initialization
 	void Start () {
 		_LevelData = GetComponent<LevelData> ();
@@ -75,7 +78,11 @@ public class FloppyGameController : MonoBehaviour {
 			CDIcon.gameObject.SetActive (levelModel.OpponentStorage == LevelModel.StorageType.CD);
 			if (levelModel.OpponentStorage == LevelModel.StorageType.CD)
 				CDStorage.ShowPanel ();
-			
+
+			if (OnLoadLevel != null) {
+				OnLoadLevel (levelIndex);
+			}
+
 		} else {
 			SceneManager.LoadScene ("SplashScene");
 		}
@@ -101,6 +108,7 @@ public class FloppyGameController : MonoBehaviour {
 		yield return new WaitForSeconds (NextLevelWaitTime);
 		CurrentLevelIndex++;
 		LoadLevel (CurrentLevelIndex);
+
 	}
 
 }

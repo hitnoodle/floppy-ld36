@@ -13,7 +13,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 6
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 6
   m_GIWorkflowMode: 1
+  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,22 +53,17 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 4
+    serializedVersion: 3
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
     m_TextureHeight: 1024
-    m_AO: 1
     m_AOMaxDistance: 1
-    m_CompAOExponent: 1
-    m_CompAOExponentDirect: 0
     m_Padding: 2
+    m_CompAOExponent: 1
     m_LightmapParameters: {fileID: 0}
-    m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
-    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
@@ -932,7 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: HDD
   _Size: 83886080
-  StorageType: 0
+  StorageType: 1
   _CurrentSize: 1474.56
   _TransferSpeed: 25
   _Files: []
@@ -2901,7 +2896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: Floppy Disk
   _Size: 1474.56
-  StorageType: 0
+  StorageType: 2
   _CurrentSize: 1474.56
   _TransferSpeed: 250
   _Files: []
@@ -2955,6 +2950,7 @@ MonoBehaviour:
   FloppyStorage: {fileID: 2074960727}
   CurrentLevelIndex: 0
   DoLoadLevel: 1
+  NextLevelWaitTime: 1
 --- !u!4 &2077596993
 Transform:
   m_ObjectHideFlags: 0
@@ -3002,19 +2998,19 @@ MonoBehaviour:
       _Size: 500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     - _Name: FileBunda.3gp
       _ImageURL: 
       _Size: 1500
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     - _Name: FilePapap.3gp
       _ImageURL: 
       _Size: 3000
       _Type: 0
       _Progress:
-        value: 0
+        value: 100
     OpponentStorage: 0
 --- !u!114 &2077596995
 MonoBehaviour:
@@ -3027,4 +3023,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0746f545d3ad4df18edf65e0a05d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileList: []
+  TransferredList: []

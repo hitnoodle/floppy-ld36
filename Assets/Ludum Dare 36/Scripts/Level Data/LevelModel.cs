@@ -7,11 +7,12 @@ public class LevelModel {
 	public enum StorageType
 	{
 		NONE 		= 0,
-		FLOPPY		= 1,
-		CD			= 2,
-		DVD			= 3,
-		THUMBDRIVE	= 4,
-		CLOUD		= 5
+		HDD			= 1,
+		FLOPPY		= 2,
+		CD			= 4,
+		DVD			= 5,
+		THUMBDRIVE	= 6,
+		CLOUD		= 7
 	}
 
 	public int Day;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TransferredFiles : MonoBehaviour {
 
-	public List<TransferredFileModel> FileList;
+	public List<TransferredFileModel> TransferredList;
 
 	FloppyGameController _GameController;
 
@@ -25,25 +25,29 @@ public class TransferredFiles : MonoBehaviour {
 		foreach (File file in sourceFiles) {
 
 			// search file in file list
+			// file dan kepemilikannya sama
 			bool foundSameFile = false;
 			int sameFileIndex = 0;
-			while (!foundSameFile && sameFileIndex < FileList.Count) {
-				if (FileList [sameFileIndex].FileModel.Name == file.Name) {
+			while (!foundSameFile && sameFileIndex < TransferredList.Count) {
+				
+				if (TransferredList [sameFileIndex].FileModel.Name == file.Name &&
+					TransferredList [sameFileIndex].StorageType == storageSource.StorageType) {
 					foundSameFile = true;
 				} else {
 					sameFileIndex++;
 				}
+
 			}
 
 			if (foundSameFile) {
-				FileList [sameFileIndex].FileModel.SetFileSize(file.Size);
-				FileList [sameFileIndex].FileModel.SetFileProgress (file.Progress.Value);
+				TransferredList [sameFileIndex].FileModel.SetFileSize(file.Size);
+				TransferredList [sameFileIndex].FileModel.SetFileProgress (file.Progress.Value);
 			} else {
 				File fileModel = new File (file.Name, file.Size, file.ImageURL);
 				fileModel.SetFileProgress (file.Progress.Value);
 				
 				TransferredFileModel transferredFileModel = new TransferredFileModel (storageSource.StorageType, fileModel);
-				FileList.Add (transferredFileModel);
+				TransferredList.Add (transferredFileModel);
 			}
 		}
 
@@ -54,7 +58,7 @@ public class TransferredFiles : MonoBehaviour {
 			}
 
 			//reset file list
-			FileList.Clear();
+			TransferredList.Clear();
 
 		}
 
@@ -66,24 +70,49 @@ public class TransferredFiles : MonoBehaviour {
 
 		bool isAllComplete = true;
 
-		// cek jumlahnya sama dengan si level model
-		if (currentLevelModel.FileList.Length == FileList.Count) {
-			int i = 0;
-			while (i < FileList.Count && isAllComplete) {
-				TransferredFileModel file = FileList [i];
-				
-				if (file.FileModel.Progress.Value < 100) {
-					// filenya belum selese dikopi tjuy
-					isAllComplete = false;
-				} else {
-					// udah selese
-					i++;
+		// aggregate dulu semua transferred list
+		List<TransferredFileModel> transferredFiles = new List<TransferredFileModel>();
+
+		for (int i = 0; i < currentLevelModel.FileList.Length; i++) {
+			// itung file yang ini udah 100% belom
+			File currentFile = currentLevelModel.FileList[i];
+
+			// cari di transferred list
+			float fileProgress = 0;
+			for (int j = 0; j < TransferredList.Count; j++) {
+				if (TransferredList[j].FileModel.Name == currentFile.Name) {
+					fileProgress += TransferredList [j].FileModel.Progress.Value;
 				}
 			}
-		} else {
-			// jumlah filenya nggak sama dengan si level
-			isAllComplete = false;
+
+			// masih ada yang belum 100 tuh progressnya
+			if (fileProgress < 100) {
+				isAllComplete = false;
+			}
+
 		}
+
+//		// cek jumlahnya sama dengan si level model
+//		if (currentLevelModel.FileList.Length == TransferredList.Count) {
+			
+//			int i = 0;
+//			while (i < TransferredList.Count && isAllComplete) {
+//				TransferredFileModel file = TransferredList [i];
+//				
+//				if (file.FileModel.Progress.Value < 100) {
+//					// filenya belum selese dikopi tjuy
+//					isAllComplete = false;
+//				} else {
+//					// udah selese
+//					i++;
+//				}
+//			}
+
+//
+//		} else {
+//			// jumlah filenya nggak sama dengan si level
+//			isAllComplete = false;
+//		}
 
 		return isAllComplete;
 

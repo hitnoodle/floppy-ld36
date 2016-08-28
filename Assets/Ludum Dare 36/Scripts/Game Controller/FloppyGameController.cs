@@ -58,7 +58,7 @@ public class FloppyGameController : MonoBehaviour {
 
 		DestroyPreviousLevel ();
 
-		if (levelIndex < _LevelData.LevelArr.Length - 1) {
+		if (levelIndex < _LevelData.LevelArr.Length) {
 			LevelModel levelModel = _LevelData.LevelArr [levelIndex];
 			
 			DaySplashScreen.ShowSplash (levelModel.Day);

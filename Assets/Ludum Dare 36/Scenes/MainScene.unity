@@ -1801,4 +1801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0746f545d3ad4df18edf65e0a05d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Files: []
+  FileList:
+  - StorageType: 0
+    FileModel:
+      _Name: 
+      _ImageURL: 
+      _Size: 0
+      _Type: 0
+      _Progress:
+        value: 0
+      _Transferred: 0

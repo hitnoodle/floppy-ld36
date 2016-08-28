@@ -7,7 +7,8 @@ public class FileBehavior : MonoBehaviour
     protected File _File;
     public File File
     {
-        get { return _File; }
+        get { return _File;  }
+        set { _File = value; }
     }
 
 	FileUI _FileUI;
@@ -28,4 +29,9 @@ public class FileBehavior : MonoBehaviour
 		_FileUI.Reset();
 
 	}
+
+    public void StartDragging()
+    {
+        EventManager.Instance.TriggerEvent(new FileDraggingStartEvent(File.Name, "HDD"));
+    }
 }

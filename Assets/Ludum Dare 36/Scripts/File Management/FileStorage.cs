@@ -196,13 +196,13 @@ public class FileStorage : MonoBehaviour
         return false;
     }
 
-	void HidePanel() {
+	public void HidePanel() {
 		_CanvasGroup.alpha = 0;
 		_CanvasGroup.interactable = false;
 		_CanvasGroup.blocksRaycasts = false;
 	}
 
-	void ShowPanel() {
+	public void ShowPanel() {
 		_CanvasGroup.alpha = 1;
 		_CanvasGroup.interactable = true;
 		_CanvasGroup.blocksRaycasts = true;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FloppyGameController : MonoBehaviour {
 
@@ -57,28 +58,32 @@ public class FloppyGameController : MonoBehaviour {
 
 		DestroyPreviousLevel ();
 
-		LevelModel levelModel = _LevelData.LevelArr [levelIndex];
-
-		DaySplashScreen.ShowSplash (levelModel.Day);
-
-		foreach (File file in levelModel.FileList) {
-			File newFile = new File (file.Name, file.Size, file.ImageURL);
-
-			// pasti 100 di harddisk mah kalau hari pertama
-			newFile.SetFileProgress (100);
-
-			HDDStorage.GenerateFile (newFile);
+		if (levelIndex < _LevelData.LevelArr.Length - 1) {
+			LevelModel levelModel = _LevelData.LevelArr [levelIndex];
+			
+			DaySplashScreen.ShowSplash (levelModel.Day);
+			
+			foreach (File file in levelModel.FileList) {
+				File newFile = new File (file.Name, file.Size, file.ImageURL);
+				
+				// pasti 100 di harddisk mah kalau hari pertama
+				newFile.SetFileProgress (100);
+				
+				HDDStorage.GenerateFile (newFile);
+			}
+			
+			CDIcon.gameObject.SetActive (levelModel.OpponentStorage == LevelModel.StorageType.CD);
+			if (levelModel.OpponentStorage == LevelModel.StorageType.CD)
+				CDStorage.ShowPanel ();
+			
+		} else {
+			SceneManager.LoadScene ("SplashScene");
 		}
-
-        CDIcon.gameObject.SetActive(levelModel.OpponentStorage == LevelModel.StorageType.CD);
-        if (levelModel.OpponentStorage == LevelModel.StorageType.CD)
-            CDStorage.ShowPanel();
     }
 
 	private void DestroyPreviousLevel() {
 		HDDStorage.DeleteFiles ();
 	}
-		
 
 	void Floppy_OnTransferFile(FileStorage fileStorage, List<File> files) {
 		_TransferredFile.TransferFile (fileStorage, files); 

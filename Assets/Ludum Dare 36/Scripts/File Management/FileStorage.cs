@@ -11,6 +11,9 @@ public class FileStorage : MonoBehaviour
 {
 	const string FILE_PREFAB = "Prefabs/File";
 
+	public delegate void _OnTransferFile(FileStorage fileStorage, List<File> files);
+	public _OnTransferFile OnTransferFile;
+
     [Header("Attributes")]
 
     [SerializeField]
@@ -31,6 +34,8 @@ public class FileStorage : MonoBehaviour
     {
         get { return FileUtilities.GetSizeText(_Size); }
     }
+
+	public LevelModel.StorageType StorageType;
 
     [SerializeField]
     protected float _CurrentSize = 1474.56f;
@@ -77,6 +82,11 @@ public class FileStorage : MonoBehaviour
     [SerializeField]
     protected RectTransform _ParentFileUI;
 
+	[SerializeField]
+	protected Button _EjectButton;
+
+	private CanvasGroup _CanvasGroup;
+
     // Use this for initialization
     void Start()
     {
@@ -84,6 +94,13 @@ public class FileStorage : MonoBehaviour
         _FileBehaviors = new List<FileBehavior>();
 
 		_GridLayout = GetComponentInChildren<GridLayoutGroup> ();
+		_CanvasGroup = GetComponent<CanvasGroup> ();
+
+		if (_EjectButton != null) {
+			_EjectButton.onClick.AddListener (() => {
+				Eject();
+			});
+		}
     }
 
     public void Eject()
@@ -97,10 +114,13 @@ public class FileStorage : MonoBehaviour
     protected IEnumerator EjectRoutine()
     {
         _IsEjected.Value = true;
+		HidePanel ();
+		TransferFiles ();
 
         yield return new WaitForSeconds(_EjectRefreshDuration);
 
         _IsEjected.Value = false;
+		ShowPanel ();
     }
 
 
@@ -175,4 +195,24 @@ public class FileStorage : MonoBehaviour
 
         return false;
     }
+
+	void HidePanel() {
+		_CanvasGroup.alpha = 0;
+		_CanvasGroup.interactable = false;
+		_CanvasGroup.blocksRaycasts = false;
+	}
+
+	void ShowPanel() {
+		_CanvasGroup.alpha = 1;
+		_CanvasGroup.interactable = true;
+		_CanvasGroup.blocksRaycasts = true;
+	}
+
+	void TransferFiles() { 
+		if (OnTransferFile != null) {
+			OnTransferFile (this, Files);
+		}
+		DeleteFiles ();
+	}
+
 }

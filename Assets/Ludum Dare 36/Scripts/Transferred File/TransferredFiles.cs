@@ -15,4 +15,15 @@ public class TransferredFiles : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void TransferFile(FileStorage storageSource, List<File> sourceFiles) {
+		foreach (File file in sourceFiles) {
+
+			File fileModel = new File (file.Name, file.Size, file.ImageURL);
+
+			TransferredFileModel transferredFileModel = new TransferredFileModel (storageSource.StorageType, fileModel);
+			FileList.Add (transferredFileModel);
+
+		}
+	}
 }

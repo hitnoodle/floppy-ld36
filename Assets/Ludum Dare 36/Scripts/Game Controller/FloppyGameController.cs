@@ -24,6 +24,12 @@ public class FloppyGameController : MonoBehaviour {
 		_TransferredFile = GetComponent<TransferredFiles> ();
 
 		FloppyStorage.OnTransferFile += Floppy_OnTransferFile;
+		_TransferredFile.OnTransferDone += Handle_OnTransferDone;
+	}
+
+	void Handle_OnTransferDone ()
+	{
+		Debug.Log ("Alhamdulillah bu, sudah ditransfer. Udah tjuth");
 	}
 	
 	// Update is called once per frame
@@ -60,6 +66,10 @@ public class FloppyGameController : MonoBehaviour {
 
 	void Floppy_OnTransferFile(FileStorage fileStorage, List<File> files) {
 		_TransferredFile.TransferFile (fileStorage, files); 
+	}
+
+	public LevelModel GetCurrentLevelModel() {
+		return _LevelData.LevelArr [CurrentLevelIndex];
 	}
 
 }

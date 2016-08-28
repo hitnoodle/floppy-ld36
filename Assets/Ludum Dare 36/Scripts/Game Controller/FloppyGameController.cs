@@ -47,7 +47,8 @@ public class FloppyGameController : MonoBehaviour {
 
 		foreach (File file in levelModel.FileList) {
 			File newFile = new File (file.Name, file.Size, file.ImageURL);
-				
+			newFile.SetFileProgress (file.Progress.Value);
+
 			HDDStorage.GenerateFile (newFile);
 		}
 	}

@@ -63,4 +63,8 @@ public class File
 		_Progress = new FloatReactiveProperty();
 		_Progress.Value = 0;
 	}
+
+	public void SetFileProgress(float progress) {
+		_Progress.Value = progress;
+	}
 }

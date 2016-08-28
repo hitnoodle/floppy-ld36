@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 
 public class FileStorage : MonoBehaviour
 {
-
 	const string FILE_PREFAB = "Prefabs/File";
 
     [Header("Attributes")]
@@ -115,7 +114,8 @@ public class FileStorage : MonoBehaviour
     }
 
 
-	public void GenerateFile(File file) {
+	public void GenerateFile(File file)
+    {
 		GameObject filePrefab = Instantiate (Resources.Load (FILE_PREFAB) as GameObject);
 
 		// place
@@ -147,7 +147,7 @@ public class FileStorage : MonoBehaviour
         File newFile = new File(file.Name, file.Size);
         _Files.Add(newFile);
 
-        FileBehavior newFileBehavior = Instantiate(Resources.Load<FileBehavior>("File"));
+        FileBehavior newFileBehavior = Instantiate(Resources.Load<FileBehavior>(FILE_PREFAB));
         newFileBehavior.File = newFile;
         newFileBehavior.transform.SetParent(_ParentFileUI);
         _FileBehaviors.Add(newFileBehavior);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using UnityEngine.UI;
 using UniRx;
 
@@ -17,6 +18,8 @@ public class FileUI : MonoBehaviour
     [SerializeField]
     protected UIProgressBar _FileProgressBar;
 
+    protected IDisposable _ProgressBarDisposable;
+
     void Awake()
     {
         _FileBehavior = GetComponent<FileBehavior>();
@@ -26,14 +29,19 @@ public class FileUI : MonoBehaviour
     void Start()
     {
         _FileText.text = _FileBehavior.File.Name;
-        _FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
+        _ProgressBarDisposable = _FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
     }
 
-	public void Reset() {
-		// dispose previous subscription
-		_FileBehavior.File.Progress.Dispose();
-		//resubscribe
-		_FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
+	public void Reset()
+    {
+        if (_ProgressBarDisposable != null)
+        {
+            // dispose previous subscription
+            _ProgressBarDisposable.Dispose();
+
+            //resubscribe
+            _ProgressBarDisposable = _FileBehavior.File.Progress.Subscribe(x => _FileProgressBar.Percentage.Value = x);
+        }
 
 		_FileText.text = _FileBehavior.File.Name;
 
@@ -43,6 +51,5 @@ public class FileUI : MonoBehaviour
 			Sprite loadedSprite = Sprite.Create (loadedTexture2D, new Rect (0,0, loadedTexture2D.width, loadedTexture2D.height), Vector2.zero);
 			_FileImage.sprite = loadedSprite;
 		}
-
 	}
 }

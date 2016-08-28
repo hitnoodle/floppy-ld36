@@ -20,6 +20,7 @@ public class TransferredFiles : MonoBehaviour {
 		foreach (File file in sourceFiles) {
 
 			File fileModel = new File (file.Name, file.Size, file.ImageURL);
+			fileModel.SetFileProgress (file.Progress.Value);
 
 			TransferredFileModel transferredFileModel = new TransferredFileModel (storageSource.StorageType, fileModel);
 			FileList.Add (transferredFileModel);

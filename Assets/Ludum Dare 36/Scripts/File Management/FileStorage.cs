@@ -223,6 +223,7 @@ public class FileStorage : MonoBehaviour
 			OnTransferFile (this, Files);
 		}
 		DeleteFiles ();
+		CurrentSize = Size;
 	}
 
 }

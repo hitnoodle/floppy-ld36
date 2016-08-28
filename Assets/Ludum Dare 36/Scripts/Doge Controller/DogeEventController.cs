@@ -1,11 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class DogeEventController : MonoBehaviour {
 
 	FloppyGameController _FloppyGameController;
 
-	public float WaitTime = 2f;
+    [System.Serializable]
+    public struct DogeEvent
+    {
+        public string Event;
+        public float Time;
+    };
+
+    [System.Serializable]
+    public struct DogeEvents
+    {
+        public int LevelIndex;
+        public DogeEvent[] Events;
+    };
+
+    public DogeEvents[] EventsData;
 
 	// Use this for initialization
 	void Start () {
@@ -15,27 +31,16 @@ public class DogeEventController : MonoBehaviour {
 
 	void Handle_OnLoadLevel (int levelIndex)
 	{
-		// hardcoded events
+        // hardcoded events
 
-		if (levelIndex == 0) {
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TRANSPARENT", 0));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TALK_FLOPPY", 3));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("STOP_TALK_FLOPPY", 6));
-
-			// CD
-		} else if (levelIndex == 1) {
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TALK_CD", 0));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TALK_CD2", 1));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TALK_CD", 2));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("TALK_CD2", 3));
-			EventManager.Instance.TriggerEvent (new DogeStartSpeakEvent ("STOP_TALK_CD", 4));
-		}
-
+        IEnumerable<DogeEvents> events = EventsData.Where(x => x.LevelIndex == levelIndex);
+        if (events.Count() > 0)
+        {
+            DogeEvents dogeEvents = events.First();
+            foreach(DogeEvent ev in dogeEvents.Events)
+            {
+                EventManager.Instance.TriggerEvent(new DogeStartSpeakEvent(ev.Event, ev.Time));
+            }
+        }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 }

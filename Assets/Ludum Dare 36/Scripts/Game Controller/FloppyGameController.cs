@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FloppyGameController : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class FloppyGameController : MonoBehaviour {
 
 	[Header("File Source")]
 	public FileStorage HDDStorage;
+	public FileStorage FloppyStorage;
 
 	[Header("Level")]
 	public int CurrentLevelIndex = 0;
@@ -20,6 +22,8 @@ public class FloppyGameController : MonoBehaviour {
 	void Start () {
 		_LevelData = GetComponent<LevelData> ();
 		_TransferredFile = GetComponent<TransferredFiles> ();
+
+		FloppyStorage.OnTransferFile += Floppy_OnTransferFile;
 	}
 	
 	// Update is called once per frame
@@ -42,22 +46,19 @@ public class FloppyGameController : MonoBehaviour {
 		DaySplashScreen.ShowSplash (levelModel.Day);
 
 		foreach (File file in levelModel.FileList) {
-			HDDStorage.GenerateFile (file);
+			File newFile = new File (file.Name, file.Size, file.ImageURL);
+				
+			HDDStorage.GenerateFile (newFile);
 		}
 	}
 
 	private void DestroyPreviousLevel() {
 		HDDStorage.DeleteFiles ();
 	}
+		
 
-	public void TransferFile(LevelModel.StorageType storageType, File file) {
-
-		TransferredFileModel transferredFile = new TransferredFileModel () {
-			StorageType = storageType,
-			FileModel = file
-		};
-
-		_TransferredFile.FileList.Add (transferredFile);
+	void Floppy_OnTransferFile(FileStorage fileStorage, List<File> files) {
+		_TransferredFile.TransferFile (fileStorage, files); 
 	}
 
 }

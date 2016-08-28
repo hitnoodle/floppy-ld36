@@ -5,4 +5,9 @@ using System.Collections;
 public class TransferredFileModel{
 	public LevelModel.StorageType StorageType;
 	public File FileModel;
+
+	public TransferredFileModel(LevelModel.StorageType storageType, File fileModel) {
+		this.StorageType 	= storageType;
+		this.FileModel 		= fileModel;
+	}
 }

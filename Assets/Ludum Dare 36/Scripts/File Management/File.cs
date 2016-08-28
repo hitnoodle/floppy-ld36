@@ -48,10 +48,19 @@ public class File
 
     public File(string name, float size)
     {
-        _Name = name;
-        _Size = size;
+		_Name = name;
+		_Size = size;
 
-        _Progress = new FloatReactiveProperty();
-        _Progress.Value = 0;
+		_Progress = new FloatReactiveProperty();
+		_Progress.Value = 0;
     }
+
+	public File(string name, float size, string imageUrl) {
+		_Name = name;
+		_Size = size;
+		_ImageURL = imageUrl;
+
+		_Progress = new FloatReactiveProperty();
+		_Progress.Value = 0;
+	}
 }

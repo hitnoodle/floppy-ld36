@@ -46,7 +46,7 @@ public class AlertUI : MonoBehaviour
         _CanvasGroup.interactable = true;
         _CanvasGroup.blocksRaycasts = true;
 
-        if (_AutoHideRoutine == null)
+        if (IsAutoHideAfterShow && _AutoHideRoutine == null)
         {
             _AutoHideRoutine = AutoHideRoutine();
             StartCoroutine(_AutoHideRoutine);

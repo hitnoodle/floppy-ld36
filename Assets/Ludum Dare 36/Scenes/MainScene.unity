@@ -1726,6 +1726,7 @@ GameObject:
   - 224: {fileID: 513526146}
   - 222: {fileID: 513526148}
   - 114: {fileID: 513526147}
+  - 114: {fileID: 513526149}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1748,8 +1749,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: -87}
-  m_SizeDelta: {x: -18, y: -195}
+  m_AnchoredPosition: {x: 0, y: -87}
+  m_SizeDelta: {x: -33, y: -195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513526147
 MonoBehaviour:
@@ -1771,7 +1772,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &513526148
@@ -1780,6 +1781,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 513526145}
+--- !u!114 &513526149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513526145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &587231875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +1957,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &656527443
@@ -2018,10 +2031,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: CD
-  _Size: 1474.56
+  _Size: 15000
   StorageType: 4
-  _CurrentSize: 1474.56
-  _TransferSpeed: 250
+  _CurrentSize: 15000
+  _TransferSpeed: 200
   _Files: []
   _IsEjected:
     value: 0
@@ -2080,7 +2093,8 @@ MonoBehaviour:
   HDDStorage: {fileID: 587231879}
   DelayStart: 10
   DelayUpdate: 5
-  TakeFile: 2
+  TakeFileMin: 2
+  TakeFileMax: 4
   Type: 1
 --- !u!1 &688230956
 GameObject:
@@ -2204,10 +2218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: DVD
-  _Size: 1474.56
+  _Size: 60000
   StorageType: 5
-  _CurrentSize: 1474.56
-  _TransferSpeed: 250
+  _CurrentSize: 60000
+  _TransferSpeed: 5000
   _Files: []
   _IsEjected:
     value: 0
@@ -2232,8 +2246,9 @@ MonoBehaviour:
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
   DelayStart: 10
-  DelayUpdate: 5
-  TakeFile: 2
+  DelayUpdate: 3
+  TakeFileMin: 3
+  TakeFileMax: 5
   Type: 1
 --- !u!225 &709360830
 CanvasGroup:
@@ -2606,10 +2621,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Thumbdrive
-  _Size: 1474.56
+  _Size: 30000
   StorageType: 6
-  _CurrentSize: 1474.56
-  _TransferSpeed: 250
+  _CurrentSize: 30000
+  _TransferSpeed: 350
   _Files: []
   _IsEjected:
     value: 0
@@ -2634,8 +2649,9 @@ MonoBehaviour:
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
   DelayStart: 10
-  DelayUpdate: 5
-  TakeFile: 2
+  DelayUpdate: 0.5
+  TakeFileMin: 1
+  TakeFileMax: 1
   Type: 0
 --- !u!225 &770049259
 CanvasGroup:
@@ -2992,7 +3008,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &834439840
@@ -3523,7 +3539,8 @@ MonoBehaviour:
   HDDStorage: {fileID: 587231879}
   DelayStart: 10
   DelayUpdate: 0.5
-  TakeFile: 2
+  TakeFileMin: 2
+  TakeFileMax: 4
   Type: 0
 --- !u!225 &1093838446
 CanvasGroup:
@@ -3624,7 +3641,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &1168203105
@@ -5188,7 +5205,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &1746455932
@@ -5229,8 +5246,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1, y: -89}
-  m_SizeDelta: {x: -35, y: -218}
+  m_AnchoredPosition: {x: 0, y: -89}
+  m_SizeDelta: {x: -37, y: -218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812769391
 MonoBehaviour:
@@ -5252,7 +5269,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &1812769392
@@ -6638,10 +6655,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Floppy Disk
-  _Size: 1474.56
+  _Size: 1500
   StorageType: 1
-  _CurrentSize: 1474.56
-  _TransferSpeed: 250
+  _CurrentSize: 1500
+  _TransferSpeed: 100
   _Files: []
   _IsEjected:
     value: 0
@@ -6713,9 +6730,9 @@ MonoBehaviour:
     StorageType: 0
     Icon: {fileID: 1252784502}
     Storage: {fileID: 0}
-  CurrentLevelIndex: 0
+  CurrentLevelIndex: 15
   DoLoadLevel: 1
-  NextLevelWaitTime: 1
+  NextLevelWaitTime: 3
 --- !u!4 &2077596993
 Transform:
   m_ObjectHideFlags: 0
@@ -6743,41 +6760,357 @@ MonoBehaviour:
   LevelArr:
   - Day: 1
     FileList:
-    - _Name: Skripsi.txt
+    - _Name: My_New_Computer.txt
       _ImageURL: 
       _Size: 500
       _Type: 0
       _Progress:
         value: 100
-    - _Name: FileMamah.3gp
-      _ImageURL: 
-      _Size: 1500
-      _Type: 0
-      _Progress:
-        value: 100
-    OpponentStorage: 6
+    OpponentStorage: 0
     ObjectsToEnable: []
-  - Day: 7
+  - Day: 75
     FileList:
-    - _Name: Thesis.txt
+    - _Name: Family_Photos.jpeg
+      _ImageURL: 
+      _Size: 490
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Family_Photos (1).jpeg
+      _ImageURL: 
+      _Size: 490
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Family_Photos (2).jpeg
+      _ImageURL: 
+      _Size: 490
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 0
+    ObjectsToEnable: []
+  - Day: 138
+    FileList:
+    - _Name: LoseRAR.exe
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Me_and_Emma.jpeg
+      _ImageURL: 
+      _Size: 300
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Me_and_Emma (2).jpeg
+      _ImageURL: 
+      _Size: 250
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: MacroHard_Word.exe
+      _ImageURL: 
+      _Size: 800
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Geo_Assignment.doc
       _ImageURL: 
       _Size: 500
       _Type: 0
       _Progress:
         value: 100
-    - _Name: FileBunda.3gp
+    OpponentStorage: 0
+    ObjectsToEnable: []
+  - Day: 294
+    FileList:
+    - _Name: Hey_Jude_Beatles.mp3
       _ImageURL: 
-      _Size: 1500
+      _Size: 1800
       _Type: 0
       _Progress:
         value: 100
-    - _Name: FilePapap.3gp
+    OpponentStorage: 0
+    ObjectsToEnable: []
+  - Day: 316
+    FileList:
+    - _Name: Summer_081997_1.jpeg
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_2.jpeg
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_3.jpeg
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_4.jpeg
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_5.jpeg
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 4
+    ObjectsToEnable: []
+  - Day: 320
+    FileList:
+    - _Name: Summer_081997_6.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_7.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_8.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_9.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_10.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_11.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_12.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Summer_081997_13.jpeg
+      _ImageURL: 
+      _Size: 750
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 4
+    ObjectsToEnable: []
+  - Day: 400
+    FileList:
+    - _Name: map_of_world.png
+      _ImageURL: 
+      _Size: 2000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: map_of_world(2).png
+      _ImageURL: 
+      _Size: 2000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 0
+    ObjectsToEnable: []
+  - Day: 647
+    FileList:
+    - _Name: PhotosPop.exe
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: PhotosPop_Crack.exe
+      _ImageURL: 
+      _Size: 2000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: DONT_DELETE.txt
+      _ImageURL: 
+      _Size: 1000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 715
+    FileList:
+    - _Name: Me_and_Emma.psd
       _ImageURL: 
       _Size: 3000
       _Type: 0
       _Progress:
         value: 100
-    OpponentStorage: 4
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 722
+    FileList:
+    - _Name: Me_and_Emma(fin).psd
+      _ImageURL: 
+      _Size: 4000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 748
+    FileList:
+    - _Name: Me_and_Emma(fin2).psd
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 961
+    FileList:
+    - _Name: Mom_and_Dad.jpg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Winter_Fun_1.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Winter_Fun_2.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Winter_Fun_3.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: cool_songs.zip
+      _ImageURL: 
+      _Size: 10000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: LoseRAR.exe
+      _ImageURL: 
+      _Size: 10000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 1193
+    FileList:
+    - _Name: Trip_072001_1.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Trip_072001_2.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Trip_072001_3.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Trip_072001_4.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Trip_072001_5.jpeg
+      _ImageURL: 
+      _Size: 5000
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 5
+    ObjectsToEnable: []
+  - Day: 1248
+    FileList:
+    - _Name: Biology_Report.doc
+      _ImageURL: 
+      _Size: 2500
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Field_Report.doc
+      _ImageURL: 
+      _Size: 2500
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Field_Report.doc.bak
+      _ImageURL: 
+      _Size: 2500
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 6
+    ObjectsToEnable:
+    - {fileID: 1325241538}
+  - Day: 1392
+    FileList:
+    - _Name: Emma_Recital.psd
+      _ImageURL: 
+      _Size: 2900
+      _Type: 0
+      _Progress:
+        value: 100
+    - _Name: Emma_Recital.jpg
+      _ImageURL: 
+      _Size: 1600
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 6
+    ObjectsToEnable:
+    - {fileID: 1325241538}
+  - Day: 1405
+    FileList:
+    - _Name: Emma_Recital(fin).jpg
+      _ImageURL: 
+      _Size: 3500
+      _Type: 0
+      _Progress:
+        value: 100
+    OpponentStorage: 6
     ObjectsToEnable:
     - {fileID: 1325241538}
 --- !u!114 &2077596995
@@ -6791,6 +7124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0746f545d3ad4df18edf65e0a05d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HDDStorage: {fileID: 587231879}
   TransferredList: []
 --- !u!114 &2077596996
 MonoBehaviour:
@@ -6812,7 +7146,7 @@ MonoBehaviour:
       Time: 5
     - Event: STOP_TALK_FLOPPY
       Time: 10
-  - LevelIndex: 1
+  - LevelIndex: 4
     Events:
     - Event: TRANSPARENT
       Time: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class TransferredFiles : MonoBehaviour {
 
+    public FileStorage HDDStorage;
 	public List<TransferredFileModel> TransferredList;
 
 	FloppyGameController _GameController;
@@ -92,30 +93,28 @@ public class TransferredFiles : MonoBehaviour {
 
 		}
 
-//		// cek jumlahnya sama dengan si level model
-//		if (currentLevelModel.FileList.Length == TransferredList.Count) {
-			
-//			int i = 0;
-//			while (i < TransferredList.Count && isAllComplete) {
-//				TransferredFileModel file = TransferredList [i];
-//				
-//				if (file.FileModel.Progress.Value < 100) {
-//					// filenya belum selese dikopi tjuy
-//					isAllComplete = false;
-//				} else {
-//					// udah selese
-//					i++;
-//				}
-//			}
+        //		// cek jumlahnya sama dengan si level model
+        //		if (currentLevelModel.FileList.Length == TransferredList.Count) {
 
-//
-//		} else {
-//			// jumlah filenya nggak sama dengan si level
-//			isAllComplete = false;
-//		}
+        //			int i = 0;
+        //			while (i < TransferredList.Count && isAllComplete) {
+        //				TransferredFileModel file = TransferredList [i];
+        //				
+        //				if (file.FileModel.Progress.Value < 100) {
+        //					// filenya belum selese dikopi tjuy
+        //					isAllComplete = false;
+        //				} else {
+        //					// udah selese
+        //					i++;
+        //				}
+        //			}
 
-		return isAllComplete;
+        //
+        //		} else {
+        //			// jumlah filenya nggak sama dengan si level
+        //			isAllComplete = false;
+        //		}
 
-
+        return isAllComplete || HDDStorage.Files.Count == 0;
 	}
 }

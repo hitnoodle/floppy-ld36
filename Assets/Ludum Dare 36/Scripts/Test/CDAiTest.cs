@@ -16,7 +16,10 @@ public class CDAiTest : MonoBehaviour
 
     public float DelayStart = 5f;
     public float DelayUpdate = 5f;
-    public int TakeFile = 2;
+
+    public int TakeFileMin = 2;
+    public int TakeFileMax = 4;
+
     public TransferType Type;
 
     protected FileStorage _CDStorage;
@@ -67,7 +70,9 @@ public class CDAiTest : MonoBehaviour
             {
                 // Pick files
                 string[] fileNames = HDDStorage.GetIdleFiles();
-                string[] tookNames = new string[(fileNames.Length > TakeFile ? TakeFile : fileNames.Length)];
+
+                int takeFile = UnityEngine.Random.Range(TakeFileMin, TakeFileMax);
+                string[] tookNames = new string[(fileNames.Length > takeFile ? takeFile : fileNames.Length)];
 
                 _CurrentTransferredFiles = tookNames;
 

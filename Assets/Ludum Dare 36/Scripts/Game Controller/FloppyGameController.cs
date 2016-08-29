@@ -47,8 +47,6 @@ public class FloppyGameController : MonoBehaviour {
 
 	void Handle_OnTransferDone ()
 	{
-		Debug.Log ("Alhamdulillah bu, sudah ditransfer. Udah tjuth");
-
         FloppyStorage.StopEjectRoutine();
         //FloppyStorage.ShowPanel();
         HDDStorage.HidePanel();
@@ -151,7 +149,5 @@ public class FloppyGameController : MonoBehaviour {
 		yield return new WaitForSeconds (NextLevelWaitTime);
 		CurrentLevelIndex++;
 		LoadLevel (CurrentLevelIndex);
-
 	}
-
 }

@@ -130,6 +130,7 @@ public class FileStorage : MonoBehaviour
 	public void StopEjectRoutine() {
 		if (_EjectRoutine != null) {
 			StopCoroutine (_EjectRoutine);
+            _EjectRoutine = null;
 		}
 		_IsEjected.Value = false;
 	}

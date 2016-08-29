@@ -48,10 +48,12 @@ public class FloppyGameController : MonoBehaviour {
 	void Handle_OnTransferDone ()
 	{
 		Debug.Log ("Alhamdulillah bu, sudah ditransfer. Udah tjuth");
-		StartCoroutine (NextLevelRoutine ());
 
-		FloppyStorage.StopEjectRoutine ();
-		FloppyStorage.ShowPanel ();
+        FloppyStorage.StopEjectRoutine();
+        //FloppyStorage.ShowPanel();
+        HDDStorage.HidePanel();
+
+        StartCoroutine (NextLevelRoutine ());
 	}
 	
 	// Update is called once per frame
@@ -91,6 +93,10 @@ public class FloppyGameController : MonoBehaviour {
                 OpponentCurrent.Icon.gameObject.SetActive(true);
                 OpponentCurrent.Storage.ShowPanel();
                 OpponentCurrent.Storage.OnTransferFile += Storage_OnTransferFile;
+
+                CDAiTest aiTest = OpponentCurrent.Storage.gameObject.GetComponent<CDAiTest>();
+                if (aiTest != null)
+                    aiTest.StartAI();
             }
 
 			if (OnLoadLevel != null) {
@@ -108,11 +114,22 @@ public class FloppyGameController : MonoBehaviour {
 
         if (OpponentCurrent != null)
         {
-            if (OpponentCurrent.Icon) OpponentCurrent.Icon.gameObject.SetActive(false);
-            if (OpponentCurrent.Storage) OpponentCurrent.Storage.OnTransferFile -= Storage_OnTransferFile;
+            if (OpponentCurrent.Icon != null) OpponentCurrent.Icon.gameObject.SetActive(false);
+            if (OpponentCurrent.Storage != null)
+            {
+                OpponentCurrent.Storage.OnTransferFile -= Storage_OnTransferFile;
+                OpponentCurrent.Storage.StopEjectRoutine();
+                OpponentCurrent.Storage.HidePanel();
+
+                CDAiTest aiTest = OpponentCurrent.Storage.gameObject.GetComponent<CDAiTest>();
+                if (aiTest != null)
+                    aiTest.StopAI();
+            } 
 
             OpponentCurrent = null;
         }
+
+        FloppyStorage.HidePanel();
 	}
 
 	void Floppy_OnTransferFile(FileStorage fileStorage, List<File> files) {

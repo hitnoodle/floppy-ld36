@@ -191,6 +191,7 @@ GameObject:
   - 224: {fileID: 52653267}
   - 222: {fileID: 52653269}
   - 114: {fileID: 52653268}
+  - 114: {fileID: 52653270}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -255,6 +256,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52653266}
+--- !u!114 &52653270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52653266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &55381971
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +454,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1093838443}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1093838443}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &77858196
 MonoBehaviour:
@@ -521,7 +570,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 541, y: -11}
+  m_AnchoredPosition: {x: -512, y: 40}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131701191
@@ -611,6 +660,7 @@ GameObject:
   - 224: {fileID: 183786544}
   - 222: {fileID: 183786546}
   - 114: {fileID: 183786545}
+  - 114: {fileID: 183786547}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -648,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -677,6 +727,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 183786543}
+--- !u!114 &183786547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183786543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &226141981
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +872,7 @@ GameObject:
   - 224: {fileID: 259462961}
   - 222: {fileID: 259462963}
   - 114: {fileID: 259462962}
+  - 114: {fileID: 259462964}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -845,7 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -872,6 +937,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 259462960}
+--- !u!114 &259462964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259462960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &324282577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,8 +1653,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  Delay: 5
+  DelayStart: 5
+  DelayUpdate: 5
   TakeFile: 2
+  Type: 1
 --- !u!1 &688230956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,8 +1803,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  Delay: 5
+  DelayStart: 5
+  DelayUpdate: 5
   TakeFile: 2
+  Type: 1
 --- !u!225 &709360830
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1884,7 +1967,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 770049256}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 770049256}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &747406862
 MonoBehaviour:
@@ -2009,8 +2126,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  Delay: 5
+  DelayStart: 5
+  DelayUpdate: 5
   TakeFile: 2
+  Type: 0
 --- !u!225 &770049259
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2090,7 +2209,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540.99994, y: -11}
+  m_AnchoredPosition: {x: -512, y: 40}
   m_SizeDelta: {x: 40, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776876693
@@ -2263,7 +2382,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 587231876}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 587231876}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!1 &834439837
 GameObject:
@@ -2615,6 +2768,7 @@ GameObject:
   - 224: {fileID: 1065629949}
   - 222: {fileID: 1065629951}
   - 114: {fileID: 1065629950}
+  - 114: {fileID: 1065629952}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2652,7 +2806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2679,6 +2833,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1065629948}
+--- !u!114 &1065629952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065629948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1093838442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,8 +2925,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  Delay: 5
+  DelayStart: 5
+  DelayUpdate: 5
   TakeFile: 2
+  Type: 0
 --- !u!225 &1093838446
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3057,7 +3227,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540.99994, y: -11}
+  m_AnchoredPosition: {x: -512, y: 40}
   m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252784501
@@ -3147,6 +3317,7 @@ GameObject:
   - 224: {fileID: 1259426170}
   - 222: {fileID: 1259426172}
   - 114: {fileID: 1259426171}
+  - 114: {fileID: 1259426173}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3184,7 +3355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3211,6 +3382,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259426169}
+--- !u!114 &1259426173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259426169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1325241538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,7 +3506,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2074960724}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2074960724}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &1341761165
 MonoBehaviour:
@@ -3682,7 +3901,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 709360827}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 709360827}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &1625917289
 MonoBehaviour:
@@ -3838,7 +4091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -3886,7 +4139,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[1].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[1].Position.y
@@ -3894,55 +4147,55 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[0].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[2].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[3].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[13].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[12].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[11].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[10].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[9].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[8].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[7].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[6].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[5].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[4].Position.x
-      value: -465
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 11482184, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: DogeLists.Array.data[0].Position.y
@@ -4333,7 +4586,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540.99994, y: -11}
+  m_AnchoredPosition: {x: -512, y: 40}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860301824
@@ -4449,7 +4702,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 541, y: 107}
+  m_AnchoredPosition: {x: -512, y: 158}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1881378516
@@ -4581,7 +4834,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 541, y: 216}
+  m_AnchoredPosition: {x: -512, y: 267}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902685581
@@ -4830,7 +5083,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1426494749}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 670407678}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 935340887}
+          m_MethodName: SetToChild
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 670407678}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &1941701279
 MonoBehaviour:
@@ -5249,7 +5536,7 @@ MonoBehaviour:
       _Type: 0
       _Progress:
         value: 100
-    OpponentStorage: 0
+    OpponentStorage: 6
   - Day: 7
     FileList:
     - _Name: Thesis.txt
@@ -5321,6 +5608,7 @@ GameObject:
   - 224: {fileID: 2081808037}
   - 222: {fileID: 2081808039}
   - 114: {fileID: 2081808038}
+  - 114: {fileID: 2081808040}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -5358,7 +5646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5385,3 +5673,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081808036}
+--- !u!114 &2081808040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081808036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.5, y: -2}
+  m_UseGraphicAlpha: 1

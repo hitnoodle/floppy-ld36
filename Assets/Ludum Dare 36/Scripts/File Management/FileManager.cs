@@ -29,7 +29,7 @@ public class FileManager : MonoBehaviour
         StartCoroutine(TransferFileRoutine(fileName, from, to));
     }
 
-    protected IEnumerator TransferFileRoutine(string fileName, FileStorage from, FileStorage to)
+    public IEnumerator TransferFileRoutine(string fileName, FileStorage from, FileStorage to)
     {
 
 		from.DisableEject ();

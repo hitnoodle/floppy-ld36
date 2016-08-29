@@ -87,7 +87,7 @@ public class FileStorage : MonoBehaviour
 
 	private CanvasGroup _CanvasGroup;
 
-	private Coroutine _EjectRoutine;
+	private IEnumerator _EjectRoutine;
 
 	public List<File> TransferringFile = new List<File> ();
 
@@ -111,7 +111,8 @@ public class FileStorage : MonoBehaviour
     {
         if (!_IsEjected.Value)
         {
-			_EjectRoutine = StartCoroutine(EjectRoutine());
+			_EjectRoutine = EjectRoutine();
+            StartCoroutine(_EjectRoutine);
         }
     }
 

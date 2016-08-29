@@ -547,6 +547,7 @@ GameObject:
   - 114: {fileID: 131701193}
   - 114: {fileID: 131701192}
   - 114: {fileID: 131701191}
+  - 225: {fileID: 131701195}
   m_Layer: 5
   m_Name: Icon - CD
   m_TagString: Untagged
@@ -650,6 +651,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131701189}
+--- !u!225 &131701195
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131701189}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &183786543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,6 +2198,7 @@ GameObject:
   - 114: {fileID: 776876695}
   - 114: {fileID: 776876694}
   - 114: {fileID: 776876693}
+  - 225: {fileID: 776876697}
   m_Layer: 5
   m_Name: Icon - USB
   m_TagString: Untagged
@@ -2289,6 +2302,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776876691}
+--- !u!225 &776876697
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776876691}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &784773011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3228,7 @@ GameObject:
   - 114: {fileID: 1252784503}
   - 114: {fileID: 1252784502}
   - 114: {fileID: 1252784501}
+  - 225: {fileID: 1252784505}
   m_Layer: 5
   m_Name: Icon - Cloud
   m_TagString: Untagged
@@ -3307,6 +3332,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1252784499}
+--- !u!225 &1252784505
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252784499}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1259426169
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4599,7 @@ GameObject:
   - 114: {fileID: 1860301826}
   - 114: {fileID: 1860301825}
   - 114: {fileID: 1860301824}
+  - 225: {fileID: 1860301828}
   m_Layer: 5
   m_Name: Icon - DVD
   m_TagString: Untagged
@@ -4666,6 +4703,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1860301822}
+--- !u!225 &1860301828
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860301822}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1881378514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4679,6 +4727,7 @@ GameObject:
   - 114: {fileID: 1881378518}
   - 114: {fileID: 1881378519}
   - 95: {fileID: 1881378520}
+  - 225: {fileID: 1881378521}
   m_Layer: 5
   m_Name: Icon - Floppy
   m_TagString: Untagged
@@ -4799,6 +4848,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!225 &1881378521
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881378514}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1902685579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,6 +4871,7 @@ GameObject:
   - 114: {fileID: 1902685581}
   - 114: {fileID: 1902685583}
   - 114: {fileID: 1902685584}
+  - 225: {fileID: 1902685585}
   m_Layer: 5
   m_Name: Icon - HDD
   m_TagString: Untagged
@@ -4914,6 +4975,17 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!225 &1902685585
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1902685579}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1904387339
 GameObject:
   m_ObjectHideFlags: 0

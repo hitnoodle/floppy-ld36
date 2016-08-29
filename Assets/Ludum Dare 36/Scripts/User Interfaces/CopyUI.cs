@@ -19,7 +19,8 @@ public class CopyUI : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.Instance.RemoveListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
+        if (EventManager.Instance != null)
+            EventManager.Instance.RemoveListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
     }
 
     public void HidePanel()

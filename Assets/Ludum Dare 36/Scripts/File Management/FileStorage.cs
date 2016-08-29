@@ -85,10 +85,16 @@ public class FileStorage : MonoBehaviour
 	[SerializeField]
 	protected Button _EjectButton;
 
+    [SerializeField]
+    protected CopyUI _CopyUIPrefab;
+
+    [SerializeField]
+    protected Transform _CopyUIParentTransform;
+
 	private CanvasGroup _CanvasGroup;
+	private IEnumerator _EjectRoutine;
 
-	private Coroutine _EjectRoutine;
-
+    [HideInInspector]
 	public List<File> TransferringFile = new List<File> ();
 
     // Use this for initialization
@@ -111,7 +117,8 @@ public class FileStorage : MonoBehaviour
     {
         if (!_IsEjected.Value)
         {
-			_EjectRoutine = StartCoroutine(EjectRoutine());
+			_EjectRoutine = EjectRoutine();
+            StartCoroutine(_EjectRoutine);
         }
     }
 
@@ -130,6 +137,7 @@ public class FileStorage : MonoBehaviour
 	public void StopEjectRoutine() {
 		if (_EjectRoutine != null) {
 			StopCoroutine (_EjectRoutine);
+            _EjectRoutine = null;
 		}
 		_IsEjected.Value = false;
 	}
@@ -142,8 +150,8 @@ public class FileStorage : MonoBehaviour
 		if (_GridLayout == null) 
 			_GridLayout = GetComponentInChildren<GridLayoutGroup> ();
 
-		filePrefab.transform.parent = _GridLayout.transform;
-		filePrefab.transform.localScale = new Vector3 (1, 1, 1);
+        filePrefab.transform.SetParent(_GridLayout.transform);
+        filePrefab.transform.localScale = new Vector3 (1, 1, 1);
 
 		// set the data
 		FileBehavior fileBehavior = filePrefab.GetComponent<FileBehavior> ();
@@ -252,4 +260,29 @@ public class FileStorage : MonoBehaviour
 			_EjectButton.interactable = false;
 	}
 
+    public void ShowAlertFull()
+    {
+        EventManager.Instance.TriggerEvent(new AlertFullEvent(_Name));
+    }
+
+    public void ShowCopy(FloatReactiveProperty progress, BoolReactiveProperty finished)
+    {
+        if (_CopyUIPrefab != null)
+        {
+            CopyUI copyUI = Instantiate(_CopyUIPrefab);
+            copyUI.ID = Name;
+
+            progress.Subscribe(x =>
+            {
+                float clampVal = Mathf.Clamp(x, 0, 100);
+                copyUI.ProgressBar.Percentage.Value = clampVal;
+            });
+
+            finished.Where(x => x == true).Subscribe(x => Destroy(copyUI.gameObject));
+
+            copyUI.transform.SetParent(_CopyUIParentTransform);
+            copyUI.transform.localPosition = new Vector3(Random.Range(-250, 250), Random.Range(-150, 150), 0);
+            copyUI.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+    }
 }

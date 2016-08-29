@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CDAiTest : MonoBehaviour
 {
@@ -20,13 +21,18 @@ public class CDAiTest : MonoBehaviour
 
     protected FileStorage _CDStorage;
     protected CanvasGroup _CanvasGroup;
+
     protected IEnumerator _AIRoutine;
+    protected IEnumerator _TransferRoutine;
+    protected string[] _CurrentTransferredFiles;
 
     // Use this for initialization
     void Start ()
     {
         _CDStorage = GetComponent<FileStorage>();
         _CanvasGroup = GetComponent<CanvasGroup>();
+
+        EventManager.Instance.AddListener<CancelTransferEvent>(OnCancelTransferEvent);
     }
 
     public void StartAI()
@@ -37,6 +43,12 @@ public class CDAiTest : MonoBehaviour
 
     public void StopAI()
     {
+        if (_TransferRoutine != null)
+        {
+            StopCoroutine(_TransferRoutine);
+            _TransferRoutine = null;
+        }
+
         if (_AIRoutine != null)
         {
             StopCoroutine(_AIRoutine);
@@ -55,16 +67,23 @@ public class CDAiTest : MonoBehaviour
                 // Pick files
                 string[] fileNames = HDDStorage.GetIdleFiles();
                 string[] tookNames = new string[(fileNames.Length > TakeFile ? TakeFile : fileNames.Length)];
+
+                _CurrentTransferredFiles = tookNames;
+
                 for (int i = 0; i < tookNames.Length; i++)
                     tookNames[i] = fileNames[i];
 
                 if (tookNames.Length > 0)
                 {
                     if (Type == TransferType.Burn)
-                        yield return StartCoroutine(FileManager.TransferFileBurnRoutine(tookNames, HDDStorage, _CDStorage));
+                    {
+                        _TransferRoutine = FileManager.TransferFileBurnRoutine(tookNames, HDDStorage, _CDStorage);
+                        yield return StartCoroutine(_TransferRoutine);
+                    }
                     else if (Type == TransferType.Normal)
                     {
-                        yield return StartCoroutine(FileManager.TransferFileRoutine(tookNames[0], HDDStorage, _CDStorage));
+                        _TransferRoutine = FileManager.TransferFileRoutine(tookNames[0], HDDStorage, _CDStorage);
+                        yield return StartCoroutine(_TransferRoutine);
 
                         yield return new WaitForSeconds(2);
 
@@ -78,6 +97,23 @@ public class CDAiTest : MonoBehaviour
             }
 
             yield return new WaitForSeconds(DelayUpdate);
+        }
+    }
+
+    private void OnCancelTransferEvent(CancelTransferEvent e)
+    {
+        if (e.StorageID.Equals(_CDStorage.Name))
+        {
+            StopAI();
+
+            _CDStorage.DeleteFiles();
+            foreach (string file in _CurrentTransferredFiles)
+            {
+                File oldFile = HDDStorage.GetFile(file);
+                oldFile.IsTransferring = false;
+            }
+
+            StartAI();
         }
     }
 }

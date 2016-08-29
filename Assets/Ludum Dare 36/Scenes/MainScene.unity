@@ -1867,7 +1867,7 @@ MonoBehaviour:
   _Name: HDD
   _Size: 83886080
   StorageType: 0
-  _CurrentSize: 1474.56
+  _CurrentSize: 83886080
   _TransferSpeed: 25
   _Files: []
   _IsEjected:
@@ -3493,9 +3493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Cloud
-  _Size: 1474.56
+  _Size: 83886080
   StorageType: 7
-  _CurrentSize: 1474.56
+  _CurrentSize: 83886080
   _TransferSpeed: 250
   _Files: []
   _IsEjected:
@@ -3520,7 +3520,7 @@ MonoBehaviour:
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
   DelayStart: 5
-  DelayUpdate: 5
+  DelayUpdate: 0.5
   TakeFile: 2
   Type: 0
 --- !u!225 &1093838446
@@ -6410,7 +6410,7 @@ MonoBehaviour:
       _Type: 0
       _Progress:
         value: 100
-    OpponentStorage: 6
+    OpponentStorage: 4
   - Day: 7
     FileList:
     - _Name: Thesis.txt

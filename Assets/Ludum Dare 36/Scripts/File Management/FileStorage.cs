@@ -150,8 +150,8 @@ public class FileStorage : MonoBehaviour
 		if (_GridLayout == null) 
 			_GridLayout = GetComponentInChildren<GridLayoutGroup> ();
 
-		filePrefab.transform.parent = _GridLayout.transform;
-		filePrefab.transform.localScale = new Vector3 (1, 1, 1);
+        filePrefab.transform.SetParent(_GridLayout.transform);
+        filePrefab.transform.localScale = new Vector3 (1, 1, 1);
 
 		// set the data
 		FileBehavior fileBehavior = filePrefab.GetComponent<FileBehavior> ();
@@ -270,6 +270,7 @@ public class FileStorage : MonoBehaviour
         if (_CopyUIPrefab != null)
         {
             CopyUI copyUI = Instantiate(_CopyUIPrefab);
+            copyUI.ID = Name;
 
             progress.Subscribe(x =>
             {

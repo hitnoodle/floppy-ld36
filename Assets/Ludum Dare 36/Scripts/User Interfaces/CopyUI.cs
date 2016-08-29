@@ -4,6 +4,7 @@ using UniRx;
 
 public class CopyUI : MonoBehaviour
 {
+    public string ID;
     public UIProgressBar ProgressBar;
     
     protected CanvasGroup _CanvasGroup;
@@ -26,5 +27,11 @@ public class CopyUI : MonoBehaviour
         _CanvasGroup.alpha = 1;
         _CanvasGroup.interactable = true;
         _CanvasGroup.blocksRaycasts = true;
+    }
+
+    public void Cancel()
+    {
+        EventManager.Instance.TriggerEvent(new CancelTransferEvent(ID));
+        Destroy(gameObject);
     }
 }

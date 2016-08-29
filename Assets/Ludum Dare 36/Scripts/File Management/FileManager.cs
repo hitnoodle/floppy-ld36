@@ -134,9 +134,15 @@ public class FileManager : MonoBehaviour
             totalSize += files[i].Size * files[i].Progress.Value / 100f;
         }
 
+        float sizeToTransferTotal = totalSize;
+        FloatReactiveProperty transferProgress = new FloatReactiveProperty();
+        BoolReactiveProperty isTransferFinished = new BoolReactiveProperty();
+        to.ShowCopy(transferProgress, isTransferFinished);
+
         while (totalSize > 0)
         {
             totalSize -= to.TransferSpeed * Time.deltaTime;
+            transferProgress.Value = (1 - (totalSize / sizeToTransferTotal)) * 100f;
             yield return null;
         }
 
@@ -148,6 +154,16 @@ public class FileManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
+
+        isTransferFinished.Value = true;
+
+        yield return null;
+
+        transferProgress.Dispose();
+        transferProgress = null;
+
+        isTransferFinished.Dispose();
+        isTransferFinished = null;
 
         to.Eject();
 

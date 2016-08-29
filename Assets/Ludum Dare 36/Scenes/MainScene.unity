@@ -1905,8 +1905,9 @@ MonoBehaviour:
   _EjectRefreshDuration: 5
   _ParentFileUI: {fileID: 1168203103}
   _EjectButton: {fileID: 0}
-  _CopyUIPrefab: {fileID: 0}
-  _CopyUIParentTransform: {fileID: 0}
+  _CopyUIPrefab: {fileID: 114000011182585434, guid: 60af2f15f7a035b45ac6a6c0c30830c6,
+    type: 2}
+  _CopyUIParentTransform: {fileID: 2023663475}
   TransferringFile: []
 --- !u!114 &670407681
 MonoBehaviour:
@@ -2090,8 +2091,9 @@ MonoBehaviour:
   _EjectRefreshDuration: 5
   _ParentFileUI: {fileID: 656527441}
   _EjectButton: {fileID: 0}
-  _CopyUIPrefab: {fileID: 0}
-  _CopyUIParentTransform: {fileID: 0}
+  _CopyUIPrefab: {fileID: 114000013625590868, guid: 3baca6058b60af44a9c40ac1c841c034,
+    type: 2}
+  _CopyUIParentTransform: {fileID: 2023663475}
   TransferringFile: []
 --- !u!114 &709360829
 MonoBehaviour:
@@ -4494,7 +4496,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_AnchoredPosition.x

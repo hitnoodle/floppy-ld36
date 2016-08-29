@@ -20,6 +20,8 @@ public class IconUI : MonoBehaviour
 
         _ClickedTimes.Where(x => x == 2).Subscribe(x => {
             _StoragePanelUI.ShowPanel();
+            SoundManager.PlaySoundEffect("pick");
+
             _ClickedTimes.Value = 0;
         });
 

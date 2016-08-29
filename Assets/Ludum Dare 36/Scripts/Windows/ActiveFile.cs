@@ -40,7 +40,10 @@ public class ActiveFile : MonoBehaviour
 
         // Hard test against floppy
         if (RectTransformUtility.RectangleContainsScreenPoint(FloppyTransform, TransparentFile.transform.position))
+        {
             FileManager.TransferFile(FileName, StorageName, "Floppy Disk");
+            SoundManager.PlaySoundEffect("pick");
+        }
     }
 
     void Update()

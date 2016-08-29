@@ -24,6 +24,7 @@ public class AlertUI : MonoBehaviour
         if (e.StorageID.Equals(ID))
         {
             ShowPanel();
+            SoundManager.PlaySoundEffect("denied");
         }
     }
 
@@ -38,6 +39,8 @@ public class AlertUI : MonoBehaviour
             StopCoroutine(_AutoHideRoutine);
             _AutoHideRoutine = null;
         }
+
+        SoundManager.PlaySoundEffect("pick");
     }
 
     public void ShowPanel()

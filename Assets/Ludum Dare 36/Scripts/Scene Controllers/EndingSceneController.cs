@@ -7,6 +7,8 @@ public class EndingSceneController : MonoBehaviour
     public DaySplash DaySplash;
     public Animator EndingAnimator;
 
+    protected IEnumerator _EndRoutine;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -15,13 +17,19 @@ public class EndingSceneController : MonoBehaviour
 
     public void End()
     {
-        StartCoroutine(EndRoutine());
+        if (_EndRoutine == null)
+        {
+            _EndRoutine = EndRoutine();
+            StartCoroutine(_EndRoutine);
+        }
     }
 
     IEnumerator EndRoutine()
     {
         EndingAnimator.enabled = true;
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(4f);
+        SoundManager.PlaySoundEffectOneShot("startup");
+        yield return new WaitForSeconds(16);
         SceneManager.LoadScene("SplashScene");
     }
 }

@@ -117,6 +117,8 @@ public class FileStorage : MonoBehaviour
     {
         if (!_IsEjected.Value)
         {
+            SoundManager.PlaySoundEffect("put");
+
 			_EjectRoutine = EjectRoutine();
             StartCoroutine(_EjectRoutine);
         }
@@ -235,6 +237,12 @@ public class FileStorage : MonoBehaviour
 		_CanvasGroup.interactable = false;
 		_CanvasGroup.blocksRaycasts = false;
 	}
+
+    public void HidePanelWithSound()
+    {
+        HidePanel();
+        SoundManager.PlaySoundEffect("put");
+    }
 
 	public void ShowPanel() {
 		_CanvasGroup.alpha = 1;

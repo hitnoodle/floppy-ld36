@@ -84,6 +84,7 @@ public class FileManager : MonoBehaviour
                         from.DeleteFile(fileName);
 
                         // Done
+                        SoundManager.PlaySoundEffect("great");
                         isTransferFinished.Value = true;
                         break;
                     }
@@ -155,6 +156,7 @@ public class FileManager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
+        SoundManager.PlaySoundEffect("great");
         isTransferFinished.Value = true;
 
         yield return null;

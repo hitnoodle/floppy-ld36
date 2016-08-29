@@ -37,7 +37,15 @@ public class DogeController : MonoBehaviour {
 
 		yield return new WaitForSeconds (waitTime);
 
-		DogeModel dogeModel = DogeLists.Where (x => x.ID == speakID).FirstOrDefault ();
+        if (!speakID.Equals("TRANSPARENT"))
+        {
+            if (speakID.Contains("STOP"))
+                SoundManager.PlaySoundEffect("poeh");
+            else
+                SoundManager.PlaySoundEffect("doge");
+        }
+
+        DogeModel dogeModel = DogeLists.Where (x => x.ID == speakID).FirstOrDefault ();
 
 		if (dogeModel != null) {
 			if (dogeModel.SpeakObject != null)

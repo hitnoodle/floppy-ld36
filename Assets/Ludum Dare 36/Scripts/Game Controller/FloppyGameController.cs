@@ -51,6 +51,7 @@ public class FloppyGameController : MonoBehaviour {
         //FloppyStorage.ShowPanel();
         HDDStorage.HidePanel();
 
+        SoundManager.PlaySoundEffect("startup");
         StartCoroutine (NextLevelRoutine ());
 	}
 	
@@ -100,7 +101,11 @@ public class FloppyGameController : MonoBehaviour {
             foreach (GameObject go in levelModel.ObjectsToEnable)
                 go.SetActive(true);
 
-			if (OnLoadLevel != null) {
+            if (!SoundManager.IsBackgroundMusicPlaying())
+                SoundManager.PlayBackgroundMusic("sad", true);
+            SoundManager.FadeBackgroundMusicIn(1f);
+
+            if (OnLoadLevel != null) {
 				OnLoadLevel (levelIndex);
 			}
 		} 
@@ -145,9 +150,12 @@ public class FloppyGameController : MonoBehaviour {
 		return _LevelData.LevelArr [CurrentLevelIndex];
 	}
 
-	IEnumerator NextLevelRoutine() {
-		yield return new WaitForSeconds (NextLevelWaitTime);
+	IEnumerator NextLevelRoutine()
+    {
+        SoundManager.FadeBackgroundMusicOut(1f);
+
+        yield return new WaitForSeconds (NextLevelWaitTime);
 		CurrentLevelIndex++;
 		LoadLevel (CurrentLevelIndex);
-	}
+    }
 }

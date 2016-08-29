@@ -9,6 +9,7 @@ public class SplashSceneController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        SoundManager.PlaySoundEffectOneShot("startup");
 		StartCoroutine (IELoadScene (WaitTime, NextScene));
 	}
 	

@@ -6814,19 +6814,19 @@ MonoBehaviour:
     ObjectsToEnable: []
   - Day: 75
     FileList:
-    - _Name: Family_Photos.jpeg
+    - _Name: Family_Photos.jpg
       _ImageURL: 
       _Size: 490
       _Type: 0
       _Progress:
         value: 100
-    - _Name: Family_Photos (1).jpeg
+    - _Name: Family_Photos_1.jpg
       _ImageURL: 
       _Size: 490
       _Type: 0
       _Progress:
         value: 100
-    - _Name: Family_Photos (2).jpeg
+    - _Name: Family_Photos_2.jpg
       _ImageURL: 
       _Size: 490
       _Type: 0

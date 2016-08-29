@@ -85,10 +85,16 @@ public class FileStorage : MonoBehaviour
 	[SerializeField]
 	protected Button _EjectButton;
 
-	private CanvasGroup _CanvasGroup;
+    [SerializeField]
+    protected CopyUI _CopyUIPrefab;
 
+    [SerializeField]
+    protected Transform _CopyUIParentTransform;
+
+	private CanvasGroup _CanvasGroup;
 	private IEnumerator _EjectRoutine;
 
+    [HideInInspector]
 	public List<File> TransferringFile = new List<File> ();
 
     // Use this for initialization
@@ -254,4 +260,28 @@ public class FileStorage : MonoBehaviour
 			_EjectButton.interactable = false;
 	}
 
+    public void ShowAlertFull()
+    {
+        EventManager.Instance.TriggerEvent(new AlertFullEvent(_Name));
+    }
+
+    public void ShowCopy(FloatReactiveProperty progress, BoolReactiveProperty finished)
+    {
+        if (_CopyUIPrefab != null)
+        {
+            CopyUI copyUI = Instantiate(_CopyUIPrefab);
+
+            progress.Subscribe(x =>
+            {
+                float clampVal = Mathf.Clamp(x, 0, 100);
+                copyUI.ProgressBar.Percentage.Value = clampVal;
+            });
+
+            finished.Where(x => x == true).Subscribe(x => Destroy(copyUI.gameObject));
+
+            copyUI.transform.SetParent(_CopyUIParentTransform);
+            copyUI.transform.localPosition = new Vector3(Random.Range(-250, 250), Random.Range(-150, 150), 0);
+            copyUI.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+    }
 }

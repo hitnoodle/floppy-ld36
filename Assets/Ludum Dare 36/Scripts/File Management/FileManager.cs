@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UniRx;
 
 public class FileManager : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class FileManager : MonoBehaviour
             float sizeToTransfer = oldFile.Progress.Value / 100f * oldFile.Size;
             float fileTransferSize = 0;
 
+            float sizeToTransferTotal = sizeToTransfer;
+            FloatReactiveProperty transferProgress = new FloatReactiveProperty();
+            BoolReactiveProperty isTransferFinished = new BoolReactiveProperty();
+            to.ShowCopy(transferProgress, isTransferFinished);
+
             while (to.CurrentSize > 0)
             {
                 yield return null;
@@ -67,6 +73,8 @@ public class FileManager : MonoBehaviour
                     sizeToTransfer -= fileTransferSize;
                     if (sizeToTransfer < 0) sizeToTransfer = 0;
 
+                    transferProgress.Value = (1 - (sizeToTransfer / sizeToTransferTotal)) * 100f;
+
                     oldFile.Progress.Value = Mathf.Clamp(sizeToTransfer / oldFile.Size * 100f, 0, 100);
                     newFile.Progress.Value = Mathf.Clamp(100 - oldFile.Progress.Value, 0, 100);
 
@@ -76,23 +84,32 @@ public class FileManager : MonoBehaviour
                         from.DeleteFile(fileName);
 
                         // Done
+                        isTransferFinished.Value = true;
                         break;
                     }
                 }
                 else
                 {
                     // Not enough space
+                    to.ShowAlertFull();
                     oldFile.IsTransferring = false;
 
                     // Done
+                    isTransferFinished.Value = true;
                     break;
                 }
             }
 
 			from.TransferringFile.Remove (oldFile);
 			to.TransferringFile.Remove (newFile);
-				
+
+            transferProgress.Dispose();
+            transferProgress = null;
+
+            isTransferFinished.Dispose();
+            isTransferFinished = null;
         }
+
 		if (from.TransferringFile.Count <= 0)
 			from.EnableEject ();
 		if (to.TransferringFile.Count <= 0)

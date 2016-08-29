@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UniRx;
+using System;
 
 public class CopyUI : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CopyUI : MonoBehaviour
     void Start ()
     {
         _CanvasGroup = GetComponent<CanvasGroup>();
+        EventManager.Instance.AddListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
     }
 
     public void HidePanel()
@@ -32,6 +34,17 @@ public class CopyUI : MonoBehaviour
     public void Cancel()
     {
         EventManager.Instance.TriggerEvent(new CancelTransferEvent(ID));
+
+        EventManager.Instance.RemoveListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
         Destroy(gameObject);
     }
+
+    private void OnCancelAllTransferEvent(CancelAllTransferEvent e)
+    {
+        if (e.StorageID.Equals(ID))
+        {
+            Cancel();
+        }
+    }
+
 }

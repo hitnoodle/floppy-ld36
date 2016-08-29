@@ -111,7 +111,8 @@ public class CDAiTest : MonoBehaviour
             foreach (string file in _CurrentTransferredFiles)
             {
                 File oldFile = HDDStorage.GetFile(file);
-                oldFile.IsTransferring = false;
+                if (oldFile != null)
+                    oldFile.IsTransferring = false;
             }
 
             StartAI();
@@ -123,7 +124,11 @@ public class CDAiTest : MonoBehaviour
         if (e.StorageID.Equals(_CDStorage.Name))
         {
             if (_TransferRoutine != null)
-                StartCoroutine(PauseTransferRoutine());
+            {
+                if (e.ResetAfterPause)
+                    StartCoroutine(PauseTransferRoutine());
+            }
+
         }
     }
 

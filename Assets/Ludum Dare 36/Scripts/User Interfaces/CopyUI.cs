@@ -17,6 +17,11 @@ public class CopyUI : MonoBehaviour
         EventManager.Instance.AddListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
     }
 
+    void OnDestroy()
+    {
+        EventManager.Instance.RemoveListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
+    }
+
     public void HidePanel()
     {
         _CanvasGroup.alpha = 0;
@@ -34,8 +39,6 @@ public class CopyUI : MonoBehaviour
     public void Cancel()
     {
         EventManager.Instance.TriggerEvent(new CancelTransferEvent(ID));
-
-        EventManager.Instance.RemoveListener<CancelAllTransferEvent>(OnCancelAllTransferEvent);
         Destroy(gameObject);
     }
 

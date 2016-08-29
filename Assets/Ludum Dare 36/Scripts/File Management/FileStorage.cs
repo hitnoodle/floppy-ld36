@@ -240,7 +240,9 @@ public class FileStorage : MonoBehaviour
 		_CanvasGroup.alpha = 1;
 		_CanvasGroup.interactable = true;
 		_CanvasGroup.blocksRaycasts = true;
-	}
+
+        transform.localPosition = new Vector3(Random.Range(-640, 170), Random.Range(0, 340), 0);
+    }
 
 	void TransferFiles() { 
 		if (OnTransferFile != null) {

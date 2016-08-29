@@ -2078,7 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  DelayStart: 5
+  DelayStart: 10
   DelayUpdate: 5
   TakeFile: 2
   Type: 1
@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  DelayStart: 5
+  DelayStart: 10
   DelayUpdate: 5
   TakeFile: 2
   Type: 1
@@ -2633,7 +2633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  DelayStart: 5
+  DelayStart: 10
   DelayUpdate: 5
   TakeFile: 2
   Type: 0
@@ -3521,7 +3521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileManager: {fileID: 963956565}
   HDDStorage: {fileID: 587231879}
-  DelayStart: 5
+  DelayStart: 10
   DelayUpdate: 0.5
   TakeFile: 2
   Type: 0
@@ -6263,7 +6263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2002745273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6551,7 +6551,7 @@ MonoBehaviour:
   DayText: {fileID: 1453539697}
   Prefix: 'Day - '
   Suffix: 
-  WaitTime: 1
+  WaitTime: 3
 --- !u!1 &2074960723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6809,17 +6809,17 @@ MonoBehaviour:
     - Event: TRANSPARENT
       Time: 0
     - Event: TALK_FLOPPY
-      Time: 3
+      Time: 5
     - Event: STOP_TALK_FLOPPY
-      Time: 6
+      Time: 10
   - LevelIndex: 1
     Events:
     - Event: TRANSPARENT
       Time: 0
     - Event: TALK_ALERT_CD
-      Time: 1
+      Time: 5
     - Event: STOP_TALK_ALERT_CD
-      Time: 4
+      Time: 10
 --- !u!1 &2081808036
 GameObject:
   m_ObjectHideFlags: 0

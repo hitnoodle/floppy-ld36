@@ -83,11 +83,13 @@ public class CDAiTest : MonoBehaviour
                 {
                     if (Type == TransferType.Burn)
                     {
+                        SoundManager.PlaySoundEffect("pick");
                         _TransferRoutine = FileManager.TransferFileBurnRoutine(tookNames, HDDStorage, _CDStorage);
                         yield return StartCoroutine(_TransferRoutine);
                     }
                     else if (Type == TransferType.Normal)
                     {
+                        SoundManager.PlaySoundEffect("pick");
                         _TransferRoutine = FileManager.TransferFileRoutine(tookNames[0], HDDStorage, _CDStorage);
                         yield return StartCoroutine(_TransferRoutine);
 

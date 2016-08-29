@@ -31,6 +31,8 @@ public class EjectUI : MonoBehaviour
     private void OnButtonClick()
     {
         _Button.interactable = false;
+
+        SoundManager.PlaySoundEffect("denied");
         StartCoroutine(EjectRoutine());
     }
 

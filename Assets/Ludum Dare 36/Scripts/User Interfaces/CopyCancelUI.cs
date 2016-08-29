@@ -45,6 +45,7 @@ public class CopyCancelUI : MonoBehaviour
         _Button.interactable = false;
         _Image.color = Color.grey;
 
+        SoundManager.PlaySoundEffect("denied");
         StartCoroutine(CancelRoutine());
     }
 

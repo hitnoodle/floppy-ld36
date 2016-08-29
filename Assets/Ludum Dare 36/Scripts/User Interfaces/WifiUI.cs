@@ -25,6 +25,8 @@ public class WifiUI : MonoBehaviour
     void OnButtonClick()
     {
         _Button.interactable = false;
+
+        SoundManager.PlaySoundEffect("denied");
         StartCoroutine(PauseRoutine());
     }
 

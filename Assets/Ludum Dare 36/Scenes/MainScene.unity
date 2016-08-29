@@ -6774,7 +6774,7 @@ MonoBehaviour:
     StorageType: 0
     Icon: {fileID: 1252784502}
     Storage: {fileID: 0}
-  CurrentLevelIndex: 0
+  CurrentLevelIndex: 4
   DoLoadLevel: 1
   NextLevelWaitTime: 3
 --- !u!4 &2077596993

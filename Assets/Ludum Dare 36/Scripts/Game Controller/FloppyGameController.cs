@@ -99,6 +99,9 @@ public class FloppyGameController : MonoBehaviour {
                     aiTest.StartAI();
             }
 
+            foreach (GameObject go in levelModel.ObjectsToEnable)
+                go.SetActive(true);
+
 			if (OnLoadLevel != null) {
 				OnLoadLevel (levelIndex);
 			}

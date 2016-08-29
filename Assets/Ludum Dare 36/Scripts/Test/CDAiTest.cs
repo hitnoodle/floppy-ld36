@@ -33,6 +33,7 @@ public class CDAiTest : MonoBehaviour
         _CanvasGroup = GetComponent<CanvasGroup>();
 
         EventManager.Instance.AddListener<CancelTransferEvent>(OnCancelTransferEvent);
+        EventManager.Instance.AddListener<PauseTransferEvent>(OnPauseTransferEvent);
     }
 
     public void StartAI()
@@ -115,5 +116,26 @@ public class CDAiTest : MonoBehaviour
 
             StartAI();
         }
+    }
+
+    private void OnPauseTransferEvent(PauseTransferEvent e)
+    {
+        if (e.StorageID.Equals(_CDStorage.Name))
+        {
+            if (_TransferRoutine != null)
+                StartCoroutine(PauseTransferRoutine());
+        }
+    }
+
+    IEnumerator PauseTransferRoutine()
+    {
+        StopAI();
+
+        File oldFile = HDDStorage.GetFile(_CurrentTransferredFiles[0]);
+        if (oldFile != null)
+            oldFile.IsTransferring = false;
+
+        yield return new WaitForSeconds(DelayStart);
+        StartAI();
     }
 }

@@ -18,5 +18,5 @@ public class LevelModel {
 	public int Day;
 	public File[] FileList;
 	public StorageType OpponentStorage;
-
+    public GameObject[] ObjectsToEnable;
 }

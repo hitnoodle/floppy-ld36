@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Ludum Dare 36/Scenes/SplashScene.unity
   - enabled: 1
     path: Assets/Ludum Dare 36/Scenes/MainScene.unity
+  - enabled: 1
+    path: Assets/Ludum Dare 36/Scenes/EndingScene.unity

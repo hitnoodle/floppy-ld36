@@ -106,7 +106,7 @@ public class FloppyGameController : MonoBehaviour {
 		} 
 		else 
 		{
-			SceneManager.LoadScene ("SplashScene");
+			SceneManager.LoadScene ("EndingScene");
 		}
     }
 

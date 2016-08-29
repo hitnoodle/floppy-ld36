@@ -7286,6 +7286,30 @@ MonoBehaviour:
       Time: 5
     - Event: STOP_TALK_ALERT_CD
       Time: 10
+  - LevelIndex: 7
+    Events:
+    - Event: TRANSPARENT
+      Time: 0
+    - Event: TALK_ALERT_CD
+      Time: 5
+    - Event: STOP_TALK_ALERT_CD
+      Time: 10
+  - LevelIndex: 13
+    Events:
+    - Event: TRANSPARENT
+      Time: 0
+    - Event: TALK_ALERT_USB
+      Time: 5
+    - Event: STOP_TALK_ALERT_USB
+      Time: 10
+  - LevelIndex: 18
+    Events:
+    - Event: TRANSPARENT
+      Time: 0
+    - Event: TALK_ALERT_CLOUD
+      Time: 5
+    - Event: STOP_TALK_ALERT_CLOUD
+      Time: 10
 --- !u!1 &2081808036
 GameObject:
   m_ObjectHideFlags: 0

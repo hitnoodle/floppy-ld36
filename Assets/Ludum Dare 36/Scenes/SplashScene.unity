@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScene: MainScene
-  WaitTime: 1
+  WaitTime: 3
 --- !u!4 &536672388
 Transform:
   m_ObjectHideFlags: 0

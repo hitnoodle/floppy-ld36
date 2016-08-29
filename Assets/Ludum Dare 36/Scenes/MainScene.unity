@@ -4694,7 +4694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22408858, guid: 9a0f8908786694fa593df63ce646b33a, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -6410,7 +6410,7 @@ MonoBehaviour:
       _Type: 0
       _Progress:
         value: 100
-    OpponentStorage: 4
+    OpponentStorage: 5
   - Day: 7
     FileList:
     - _Name: Thesis.txt
